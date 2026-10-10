@@ -40,7 +40,7 @@
             color: inherit;
         }
 
-        /* CONTROL DE VISTAS (PÁGINA PRINCIPAL / SUBPÁGINA DEPORTE) */
+        /* CONTROL DE VISTAS (SINGLE PAGE APP) */
         .page-view {
             display: block;
         }
@@ -208,7 +208,7 @@
             color: var(--red-main);
         }
 
-        /* ESTILOS DEL MENÚ LATERAL DESPLEGABLE (OFF-CANVAS) */
+        /* MENÚ LATERAL DESPLEGABLE (OFF-CANVAS) */
         .sidebar-overlay {
             position: fixed;
             top: 0;
@@ -492,7 +492,7 @@
         .sub-hero-card .card-body { padding: 10px; }
         .sub-hero-card .card-body h3 { font-size: 0.82rem; line-height: 1.3; }
 
-        /* ESTILOS DE SECCIÓN REGIONAL */
+        /* REGIONALES */
         .regional-featured-video-card {
             background: var(--white);
             border-radius: 10px;
@@ -883,7 +883,7 @@
             border: 0;
         }
 
-        /* BLOQUE DE LOGOS DE PROGRAMAS DE TV Y FORMATOS */
+        /* BLOQUE DE LOGOS DE PROGRAMAS DE TV */
         .programs-logos-block {
             background: var(--white);
             border-radius: 10px;
@@ -943,7 +943,7 @@
             text-transform: uppercase;
         }
 
-        /* SECCIÓN DE OPINIÓN */
+        /* OPINIÓN */
         .opinion-section {
             background: var(--white);
             border-radius: 10px;
@@ -1026,11 +1026,9 @@
             overflow: hidden;
         }
 
-        .opinion-card:hover .opinion-title {
-            color: var(--red-main);
-        }
+        .opinion-card:hover .opinion-title { color: var(--red-main); }
 
-        /* BARRA LATERAL Y BANNERS PUBLICITARIOS */
+        /* BARRA LATERAL Y PUBLICIDAD */
         .sidebar-widget {
             background-color: var(--white);
             border-radius: 10px;
@@ -1144,7 +1142,6 @@
 
         .banner-cta-btn:hover { background: var(--yellow-accent); color: var(--black-main); transform: translateY(-2px); }
 
-        /* BANNER EXTRA 300x250 PX PARA SUBPÁGINA */
         .banner-300x250 {
             width: 300px;
             height: 250px;
@@ -1162,7 +1159,7 @@
             position: relative;
         }
 
-        /* ESTILOS DE LA LISTA VERTICAL DE 10 NOTICIAS DE LA SUBPÁGINA */
+        /* ESTRUCTURA DE SUBPÁGINA DEDICADA DE CATEGORÍAS */
         .sports-page-header {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: var(--white);
@@ -1365,13 +1362,13 @@
             <ul class="sidebar-links">
                 <li><a onclick="showView('home')"><i class="fa-solid fa-house"></i> Inicio</a></li>
                 <li><a onclick="showView('deportes')"><i class="fa-solid fa-trophy"></i> Deporte</a></li>
-                <li><a onclick="showView('home')"><i class="fa-solid fa-music"></i> Entretenimiento y Música</a></li>
-                <li><a onclick="showView('home')"><i class="fa-solid fa-calendar-check"></i> Eventos</a></li>
-                <li><a onclick="showView('home')"><i class="fa-solid fa-flag"></i> Colombia</a></li>
-                <li><a onclick="showView('home')"><i class="fa-solid fa-globe"></i> Mundo</a></li>
-                <li><a onclick="showView('home')"><i class="fa-solid fa-landmark"></i> Política</a></li>
-                <li><a onclick="showView('home')"><i class="fa-solid fa-newspaper"></i> Noticias Generales</a></li>
-                <li><a onclick="showView('home')"><i class="fa-solid fa-envelope"></i> Contáctanos</a></li>
+                <li><a onclick="showView('entretenimiento')"><i class="fa-solid fa-music"></i> Entretenimiento y Música</a></li>
+                <li><a onclick="showView('eventos')"><i class="fa-solid fa-calendar-check"></i> Eventos</a></li>
+                <li><a onclick="showView('colombia')"><i class="fa-solid fa-flag"></i> Colombia</a></li>
+                <li><a onclick="showView('mundo')"><i class="fa-solid fa-globe"></i> Mundo</a></li>
+                <li><a onclick="showView('politica')"><i class="fa-solid fa-landmark"></i> Política</a></li>
+                <li><a onclick="showView('noticias-generales')"><i class="fa-solid fa-newspaper"></i> Noticias Generales</a></li>
+                <li><a onclick="showView('contactanos')"><i class="fa-solid fa-envelope"></i> Contáctanos</a></li>
             </ul>
 
             <div class="sidebar-section-title">Especiales & Radio</div>
@@ -1379,7 +1376,7 @@
                 <li><a href="#"><i class="fa-solid fa-rainbow"></i> LGTBI</a></li>
                 <li><a href="#"><i class="fa-solid fa-radio"></i> LaVibrante Radio</a></li>
                 <li><a href="#"><i class="fa-solid fa-headphones"></i> Escucha en Vivo</a></li>
-                <li><a href="#programas"><i class="fa-solid fa-tv"></i> Programas</a></li>
+                <li><a href="#programas" onclick="closeSidebar()"><i class="fa-solid fa-tv"></i> Programas</a></li>
                 <li><a href="#"><i class="fa-solid fa-users"></i> Staff LaVibrante.com</a></li>
                 <li><a href="#"><i class="fa-solid fa-utensils"></i> Sabor Vibrante</a></li>
                 <li><a href="#"><i class="fa-solid fa-circle" style="color:var(--red-main);"></i> LIVE</a></li>
@@ -1395,12 +1392,12 @@
             </div>
             <div class="top-bar-links">
                 <a href="#edicion-digital"><i class="fa-solid fa-newspaper"></i> Edición Digital</a>
-                <a href="#contactanos"><i class="fa-solid fa-envelope"></i> Contáctanos / Pauta</a>
+                <a onclick="showView('contactanos')" style="cursor:pointer;"><i class="fa-solid fa-envelope"></i> Contáctanos / Pauta</a>
             </div>
         </div>
     </div>
 
-    <!-- ENCABEZADO CON MENÚ EN ESPAÑOL -->
+    <!-- ENCABEZADO CON MENÚ NAVEGABLE INTERACTIVO EN CADA CATEGORÍA -->
     <div class="cnn-header-container">
         <div class="cnn-navbar">
             <div class="cnn-left-group">
@@ -1408,17 +1405,17 @@
                 <a onclick="showView('home')" class="logo-cnn-style">LaVibrante<span>.com</span></a>
             </div>
 
-            <!-- MENÚ PRINCIPAL CON CLIC EN DEPORTE -->
+            <!-- MENÚ PRINCIPAL DONDE CADA CATEGORÍA LLEVA A SU SUBPÁGINA DEDICADA -->
             <ul class="cnn-nav-links">
                 <li><a onclick="showView('home')" id="nav-home" class="active-link">Inicio</a></li>
                 <li><a onclick="showView('deportes')" id="nav-deportes">Deporte</a></li>
-                <li><a onclick="showView('home')">Entretenimiento y Música</a></li>
-                <li><a onclick="showView('home')">Eventos</a></li>
-                <li><a onclick="showView('home')">Colombia</a></li>
-                <li><a onclick="showView('home')">Mundo</a></li>
-                <li><a onclick="showView('home')">Política</a></li>
-                <li><a onclick="showView('home')">Noticias Generales</a></li>
-                <li><a onclick="showView('home')">Contáctanos</a></li>
+                <li><a onclick="showView('entretenimiento')" id="nav-entretenimiento">Entretenimiento y Música</a></li>
+                <li><a onclick="showView('eventos')" id="nav-eventos">Eventos</a></li>
+                <li><a onclick="showView('colombia')" id="nav-colombia">Colombia</a></li>
+                <li><a onclick="showView('mundo')" id="nav-mundo">Mundo</a></li>
+                <li><a onclick="showView('politica')" id="nav-politica">Política</a></li>
+                <li><a onclick="showView('noticias-generales')" id="nav-noticias-generales">Noticias Generales</a></li>
+                <li><a onclick="showView('contactanos')" id="nav-contactanos">Contáctanos</a></li>
             </ul>
 
             <div class="cnn-right-actions">
@@ -1511,7 +1508,7 @@
 
                         <div class="sub-grid-2x2">
                             <article class="sub-hero-card">
-                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <a onclick="showView('mundo')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                     <div class="img-container">
                                         <span class="badge-cat badge-floating">Internacional</span>
                                         <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80" alt="Noticia 2">
@@ -1523,7 +1520,7 @@
                             </article>
 
                             <article class="sub-hero-card">
-                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <a onclick="showView('noticias-generales')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                     <div class="img-container">
                                         <span class="badge-cat badge-floating">Tecnología</span>
                                         <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Noticia 3">
@@ -1535,7 +1532,7 @@
                             </article>
 
                             <article class="sub-hero-card">
-                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <a onclick="showView('noticias-generales')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                     <div class="img-container">
                                         <span class="badge-cat badge-floating">Salud</span>
                                         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" alt="Noticia 4">
@@ -1547,7 +1544,7 @@
                             </article>
 
                             <article class="sub-hero-card">
-                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                     <div class="img-container">
                                         <span class="badge-cat badge-floating">Infraestructura</span>
                                         <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" alt="Noticia 5">
@@ -1582,7 +1579,7 @@
                     <div class="regional-layout-grid">
                         <div class="regional-3x2-grid">
                             <article class="card">
-                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <a onclick="showView('eventos')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                     <div class="img-container" style="height: 110px;">
                                         <span class="badge-cat badge-floating">Carnaval</span>
                                         <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80" alt="Regional 1">
@@ -1594,7 +1591,7 @@
                             </article>
 
                             <article class="card">
-                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                     <div class="img-container" style="height: 110px;">
                                         <span class="badge-cat badge-floating">Bogotá</span>
                                         <img src="https://images.unsplash.com/photo-1583531172005-814191b8b6c0?auto=format&fit=crop&w=400&q=80" alt="Regional 2">
@@ -1606,7 +1603,7 @@
                             </article>
 
                             <article class="card">
-                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                     <div class="img-container" style="height: 110px;">
                                         <span class="badge-cat badge-floating">Medellín</span>
                                         <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=400&q=80" alt="Regional 3">
@@ -1618,7 +1615,7 @@
                             </article>
 
                             <article class="card">
-                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <a onclick="showView('eventos')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                     <div class="img-container" style="height: 110px;">
                                         <span class="badge-cat badge-floating">Cartagena</span>
                                         <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" alt="Regional 4">
@@ -1630,7 +1627,7 @@
                             </article>
 
                             <article class="card">
-                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                     <div class="img-container" style="height: 110px;">
                                         <span class="badge-cat badge-floating">Vías</span>
                                         <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=400&q=80" alt="Regional 5">
@@ -1642,7 +1639,7 @@
                             </article>
 
                             <article class="card">
-                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <a onclick="showView('noticias-generales')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                     <div class="img-container" style="height: 110px;">
                                         <span class="badge-cat badge-floating">Economía</span>
                                         <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80" alt="Regional 6">
@@ -1655,7 +1652,7 @@
                         </div>
 
                         <article class="regional-vertical-card">
-                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                            <a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--black-main);">Informe Especial</span>
                                     <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80" alt="Regional Vertical">
@@ -1673,17 +1670,18 @@
                 <section id="nacionales" style="margin-bottom: 28px;">
                     <div class="section-header">
                         <h2><i class="fa-solid fa-flag"></i> Colombia</h2>
+                        <span onclick="showView('colombia')" style="font-size: 0.78rem; color: var(--red-main); font-weight: bold; cursor:pointer;">Ver subpágina Colombia →</span>
                     </div>
 
                     <div class="news-grid-4">
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>1. Megaproyectos viales conectarán el centro del país</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>2. Estrategia ambiental para la protección de parques</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>3. Transformación tecnológica en las escuelas rurales</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>4. Fortalecimiento del sistema de salud preventiva</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>5. Reporte de producción cafetera en la zona andina</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>6. Alianzas universitarias para impulsar la ciencia</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1473186578172-c141e6798cf4?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>7. Balance positivo del turismo nacional de temporada</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>8. Planes de inversión social e inclusión territorial</h3></div></a></article>
+                        <article class="card"><a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>1. Megaproyectos viales conectarán el centro del país</h3></div></a></article>
+                        <article class="card"><a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>2. Estrategia ambiental para la protección de parques</h3></div></a></article>
+                        <article class="card"><a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>3. Transformación tecnológica en las escuelas rurales</h3></div></a></article>
+                        <article class="card"><a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>4. Fortalecimiento del sistema de salud preventiva</h3></div></a></article>
+                        <article class="card"><a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>5. Reporte de producción cafetera en la zona andina</h3></div></a></article>
+                        <article class="card"><a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>6. Alianzas universitarias para impulsar la ciencia</h3></div></a></article>
+                        <article class="card"><a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1473186578172-c141e6798cf4?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>7. Balance positivo del turismo nacional de temporada</h3></div></a></article>
+                        <article class="card"><a onclick="showView('colombia')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating">Nacionales</span><img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>8. Planes de inversión social e inclusión territorial</h3></div></a></article>
                     </div>
                 </section>
 
@@ -1691,21 +1689,22 @@
                 <section id="politica" style="margin-bottom: 28px;">
                     <div class="section-header">
                         <h2><i class="fa-solid fa-landmark"></i> Política & Análisis</h2>
+                        <span onclick="showView('politica')" style="font-size: 0.78rem; color: var(--red-main); font-weight: bold; cursor:pointer;">Ver subpágina Política →</span>
                     </div>
 
                     <div class="news-grid-4">
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>1. Debates legislativos clave en el Congreso</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>2. Acuerdos de gobernabilidad y consensos</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1575320181282-9afab399332c?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>3. Análisis del mapa electoral e intenciones</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>4. Reformas a la contratación pública</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>5. Protocolos de relaciones diplomáticas</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>6. Proyectos de ley en descentralización</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>7. Posturas de partidos frente a políticas</h3></div></a></article>
-                        <article class="card"><a href="#" style="display:flex; flex-direction:column; height:100%;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>8. Balance de gestión de entes territoriales</h3></div></a></article>
+                        <article class="card"><a onclick="showView('politica')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>1. Debates legislativos clave en el Congreso</h3></div></a></article>
+                        <article class="card"><a onclick="showView('politica')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>2. Acuerdos de gobernabilidad y consensos</h3></div></a></article>
+                        <article class="card"><a onclick="showView('politica')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1575320181282-9afab399332c?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>3. Análisis del mapa electoral e intenciones</h3></div></a></article>
+                        <article class="card"><a onclick="showView('politica')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>4. Reformas a la contratación pública</h3></div></a></article>
+                        <article class="card"><a onclick="showView('politica')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>5. Protocolos de relaciones diplomáticas</h3></div></a></article>
+                        <article class="card"><a onclick="showView('politica')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>6. Proyectos de ley en descentralización</h3></div></a></article>
+                        <article class="card"><a onclick="showView('politica')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>7. Posturas de partidos frente a políticas</h3></div></a></article>
+                        <article class="card"><a onclick="showView('politica')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;"><div class="img-container"><span class="badge-cat badge-floating" style="background:var(--black-main);">Política</span><img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80"></div><div class="card-body"><h3>8. Balance de gestión de entes territoriales</h3></div></a></article>
                     </div>
                 </section>
 
-                <!-- SECCIÓN DEPORTE (CON ENLACE A LA SUBPÁGINA) -->
+                <!-- SECCIÓN DEPORTE -->
                 <section id="deportes" style="margin-bottom: 28px;">
                     <div class="section-header">
                         <h2><i class="fa-solid fa-trophy"></i> Deporte</h2>
@@ -1780,12 +1779,12 @@
                 <section id="entretenimiento" style="margin-bottom: 28px;">
                     <div class="section-header" style="border-bottom-color: var(--purple-accent);">
                         <h2><i class="fa-solid fa-music" style="color: var(--purple-accent);"></i> Entretenimiento y Música</h2>
-                        <span style="font-size: 0.78rem; color: var(--purple-accent); font-weight: bold;">Música, Cine & Farándula</span>
+                        <span onclick="showView('entretenimiento')" style="font-size: 0.78rem; color: var(--purple-accent); font-weight: bold; cursor:pointer;">Ver subpágina Entretenimiento →</span>
                     </div>
 
                     <div class="news-grid-4">
                         <article class="card">
-                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                            <a onclick="showView('entretenimiento')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--purple-accent);">Música</span>
                                     <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80">
@@ -1797,7 +1796,7 @@
                         </article>
 
                         <article class="card">
-                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                            <a onclick="showView('entretenimiento')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--purple-accent);">Cine</span>
                                     <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80">
@@ -1809,7 +1808,7 @@
                         </article>
 
                         <article class="card">
-                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                            <a onclick="showView('entretenimiento')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--purple-accent);">Cultura</span>
                                     <img src="https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=400&q=80">
@@ -1821,7 +1820,7 @@
                         </article>
 
                         <article class="card">
-                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                            <a onclick="showView('entretenimiento')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--purple-accent);">Celebridades</span>
                                     <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80">
@@ -1844,32 +1843,32 @@
                     </div>
 
                     <div class="stories-grid-static">
-                        <div class="story-card-item">
+                        <div class="story-card-item" onclick="showView('entretenimiento')">
                             <div class="story-badge-user">@lavibrante</div>
                             <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>1. Moda y Tendencias</h5></div>
                         </div>
-                        <div class="story-card-item">
+                        <div class="story-card-item" onclick="showView('deportes')">
                             <div class="story-badge-user">@lavibrante</div>
                             <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>2. Entrenamiento Junior</h5></div>
                         </div>
-                        <div class="story-card-item">
+                        <div class="story-card-item" onclick="showView('eventos')">
                             <div class="story-badge-user">@lavibrante</div>
                             <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>3. Carnaval tras bambalinas</h5></div>
                         </div>
-                        <div class="story-card-item">
+                        <div class="story-card-item" onclick="showView('entretenimiento')">
                             <div class="story-badge-user">@lavibrante</div>
                             <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>4. Entrevista Especial</h5></div>
                         </div>
-                        <div class="story-card-item">
+                        <div class="story-card-item" onclick="showView('entretenimiento')">
                             <div class="story-badge-user">@lavibrante</div>
                             <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>5. El Jangueo nocturno</h5></div>
                         </div>
-                        <div class="story-card-item">
+                        <div class="story-card-item" onclick="showView('eventos')">
                             <div class="story-badge-user">@lavibrante</div>
                             <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>6. Concierto en la Costa</h5></div>
@@ -1964,7 +1963,7 @@
 
                     <div class="news-grid-4">
                         <article class="card">
-                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                            <a onclick="showView('noticias-generales')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--blue-accent);">Triple A</span>
                                     <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=400&q=80" alt="Noticia Triple A 1">
@@ -1976,7 +1975,7 @@
                         </article>
 
                         <article class="card">
-                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                            <a onclick="showView('noticias-generales')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:#e67e22;">Air-e</span>
                                     <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=400&q=80" alt="Noticia Air-e 1">
@@ -1988,7 +1987,7 @@
                         </article>
 
                         <article class="card">
-                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                            <a onclick="showView('noticias-generales')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--blue-accent);">Triple A</span>
                                     <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80" alt="Noticia Triple A 2">
@@ -2000,7 +1999,7 @@
                         </article>
 
                         <article class="card">
-                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                            <a onclick="showView('noticias-generales')" style="display:flex; flex-direction:column; height:100%; cursor:pointer;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:#e67e22;">Air-e</span>
                                     <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=400&q=80" alt="Noticia Air-e 2">
@@ -2021,7 +2020,7 @@
                     </div>
 
                     <div class="opinion-grid-4">
-                        <a href="#" class="opinion-card">
+                        <a onclick="showView('politica')" class="opinion-card" style="cursor:pointer;">
                             <div class="opinion-avatar-container">
                                 <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="María Fernanda Gómez">
                             </div>
@@ -2030,7 +2029,7 @@
                             <p class="opinion-title">“Retos de la competitividad regional y las oportunidades de desarrollo para el Caribe”</p>
                         </a>
 
-                        <a href="#" class="opinion-card">
+                        <a onclick="showView('politica')" class="opinion-card" style="cursor:pointer;">
                             <div class="opinion-avatar-container">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Carlos Eduardo Morales">
                             </div>
@@ -2039,7 +2038,7 @@
                             <p class="opinion-title">“Democracia, gobernabilidad y los consensos indispensables para el país”</p>
                         </a>
 
-                        <a href="#" class="opinion-card">
+                        <a onclick="showView('politica')" class="opinion-card" style="cursor:pointer;">
                             <div class="opinion-avatar-container">
                                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Patricia Reyes">
                             </div>
@@ -2048,7 +2047,7 @@
                             <p class="opinion-title">“Transformación urbana inteligente: el futuro sostenible de nuestras ciudades”</p>
                         </a>
 
-                        <a href="#" class="opinion-card">
+                        <a onclick="showView('politica')" class="opinion-card" style="cursor:pointer;">
                             <div class="opinion-avatar-container">
                                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="Jorge Luis Mendoza">
                             </div>
@@ -2078,15 +2077,15 @@
                     <ul class="list-ranking">
                         <li>
                             <span class="rank-num">1</span>
-                            <div><a href="#" style="font-weight:bold; font-size:0.82rem;">Rutas aéreas conectarán a Barranquilla con nuevos destinos</a></div>
+                            <div><a onclick="showView('colombia')" style="font-weight:bold; font-size:0.82rem; cursor:pointer;">Rutas aéreas conectarán a Barranquilla con nuevos destinos</a></div>
                         </li>
                         <li>
                             <span class="rank-num">2</span>
-                            <div><a href="#" style="font-weight:bold; font-size:0.82rem;">Programación oficial del Carnaval de Barranquilla</a></div>
+                            <div><a onclick="showView('eventos')" style="font-weight:bold; font-size:0.82rem; cursor:pointer;">Programación oficial del Carnaval de Barranquilla</a></div>
                         </li>
                         <li>
                             <span class="rank-num">3</span>
-                            <div><a href="#" style="font-weight:bold; font-size:0.82rem;">Balance económico e inversión privada en Colombia</a></div>
+                            <div><a onclick="showView('noticias-generales')" style="font-weight:bold; font-size:0.82rem; cursor:pointer;">Balance económico e inversión privada en Colombia</a></div>
                         </li>
                     </ul>
                 </div>
@@ -2099,7 +2098,7 @@
                         Si su negocio no está en <span>La Vibrante</span>, su competencia se está llevando sus clientes.
                     </div>
                     <p class="banner-subtext">Llegue a más de 100,000 lectores diarios en la Costa y todo el país. Posicione su marca hoy.</p>
-                    <a href="#" class="banner-cta-btn"><i class="fa-solid fa-paper-plane"></i> Cotizar Pauta Ahora</a>
+                    <a onclick="showView('contactanos')" class="banner-cta-btn" style="cursor:pointer;"><i class="fa-solid fa-paper-plane"></i> Cotizar Pauta Ahora</a>
                 </div>
 
                 <!-- SEGUNDO BANNER PUBLICITARIO 300x600 -->
@@ -2110,7 +2109,7 @@
                         Haz que miles de clientes <span>vean tu marca</span> todos los días.
                     </div>
                     <p class="banner-subtext">Impulsa tus ventas con espacios publicitarios de alto impacto y resultados garantizados.</p>
-                    <a href="#" class="banner-cta-btn"><i class="fa-brands fa-whatsapp"></i> Contactar Asesor</a>
+                    <a onclick="showView('contactanos')" class="banner-cta-btn" style="cursor:pointer;"><i class="fa-brands fa-whatsapp"></i> Contactar Asesor</a>
                 </div>
 
             </aside>
@@ -2118,15 +2117,15 @@
     </div>
 
     <!-- ===================================================================
-         VISTA 2: SUBPÁGINA DEDICADA DE DEPORTE (AL DAR CLIC EN DEPORTE)
+         VISTA DINÁMICA REUTILIZABLE PARA SUBPÁGINAS DEDICADAS DEL MENÚ
     ==================================================================== -->
-    <div id="view-deportes" class="page-view hidden container">
+    <div id="view-category-subpage" class="page-view hidden container">
         
         <!-- ENCABEZADO DE LA SUBPÁGINA DEDICADA -->
         <div class="sports-page-header">
             <div class="sports-page-title">
-                <h1><i class="fa-solid fa-trophy" style="color:var(--yellow-accent);"></i> Portal de Deportes LaVibrante</h1>
-                <p style="font-size:0.85rem; color:#cbd5e1; margin-top:4px;">Toda la actualidad del Fútbol Nacional e Internacional, Polideportivo, Béisbol y Ciclismo</p>
+                <h1><i id="subpage-icon" class="fa-solid fa-trophy" style="color:var(--yellow-accent);"></i> <span id="subpage-title">Portal de Deportes</span></h1>
+                <p id="subpage-subtitle" style="font-size:0.85rem; color:#cbd5e1; margin-top:4px;">Toda la actualidad, últimas noticias e informes de la categoría</p>
             </div>
             <div class="back-to-home-btn" onclick="showView('home')">
                 <i class="fa-solid fa-arrow-left"></i> Volver al Inicio
@@ -2136,7 +2135,7 @@
         <!-- 1. VIDEO DE YOUTUBE AL PRINCIPIO -->
         <div style="background:var(--black-main); border-radius:12px; overflow:hidden; margin-bottom:28px; border:2px solid var(--red-main); box-shadow:0 6px 20px rgba(0,0,0,0.15);">
             <div style="position:relative; width:100%; padding-bottom:42%; height:0;">
-                <iframe src="https://www.youtube.com/embed/5D_J2M4u5Q8" title="Resumen Deportivo LaVibrante" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"></iframe>
+                <iframe id="subpage-video" src="https://www.youtube.com/embed/5D_J2M4u5Q8" title="Video Destacado de Categoría" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"></iframe>
             </div>
         </div>
 
@@ -2148,22 +2147,22 @@
                 
                 <!-- BANNER PUBLICITARIO 1 (300x600 PX) -->
                 <div class="banner-300x600" style="margin: 0;">
-                    <span class="banner-tag">¡PAUTA DEPORTIVA!</span>
+                    <span class="banner-tag">¡PAUTA EXCLUSIVA!</span>
                     <i class="fa-solid fa-bullhorn banner-icon"></i>
                     <div class="banner-phrase">
-                        Llega a miles de <span>Fanáticos del Deporte</span> en la Costa
+                        Llega a miles de <span>Lectores Activos</span> en el Caribe
                     </div>
-                    <p class="banner-subtext">Anuncia tu marca en el portal líder de noticias deportivas. Cobertura total de eventos y partidos.</p>
-                    <a href="#" class="banner-cta-btn"><i class="fa-solid fa-paper-plane"></i> Cotizar Pauta Ahora</a>
+                    <p class="banner-subtext">Anuncia tu marca en la sección más leída. Cobertura completa y posicionamiento efectivo.</p>
+                    <a onclick="showView('contactanos')" class="banner-cta-btn" style="cursor:pointer;"><i class="fa-solid fa-paper-plane"></i> Cotizar Pauta Ahora</a>
                 </div>
 
                 <!-- BANNER PUBLICITARIO 2 (300x250 PX) -->
                 <div class="banner-300x250" style="margin: 0;">
-                    <span class="banner-tag">OFERTA EXCLUSIVA</span>
-                    <i class="fa-solid fa-shirt banner-icon"></i>
-                    <div class="banner-phrase">Indumentaria <span>Oficial</span></div>
-                    <p class="banner-subtext">Equípate con las camisetas de tu equipo favorito esta temporada.</p>
-                    <a href="#" class="banner-cta-btn"><i class="fa-solid fa-cart-shopping"></i> Comprar Tienda</a>
+                    <span class="banner-tag">OFERTA ESPECIAL</span>
+                    <i class="fa-solid fa-star banner-icon"></i>
+                    <div class="banner-phrase">Promociona tu <span>Negocio</span></div>
+                    <p class="banner-subtext">Llega a tu audiencia ideal con banners de alta visibilidad.</p>
+                    <a onclick="showView('contactanos')" class="banner-cta-btn" style="cursor:pointer;"><i class="fa-solid fa-handshake"></i> Ver Planes</a>
                 </div>
 
                 <!-- BANNER PUBLICITARIO 3 (300x600 PX) -->
@@ -2173,175 +2172,15 @@
                     <div class="banner-phrase">
                         Impulsa tu negocio con <span>Resultados Reales</span>
                     </div>
-                    <p class="banner-subtext">Promociona tu empresa en nuestras transmisiones en directo y cobertura periodística.</p>
-                    <a href="#" class="banner-cta-btn"><i class="fa-brands fa-whatsapp"></i> Contactar Asesor</a>
+                    <p class="banner-subtext">Promociona tu empresa en nuestras transmisiones en directo y publicaciones especiales.</p>
+                    <a onclick="showView('contactanos')" class="banner-cta-btn" style="cursor:pointer;"><i class="fa-brands fa-whatsapp"></i> Contactar Asesor</a>
                 </div>
 
             </aside>
 
             <!-- COLUMNA DERECHA: LISTA DE 10 NOTICIAS EN COLUMNAS VERTICALES CON FOTO Y RESUMEN -->
-            <main class="sports-vertical-list">
-
-                <!-- NOTICIA 1 -->
-                <article class="sports-news-item-vertical">
-                    <div class="sports-item-img">
-                        <span class="badge-cat badge-floating">Liga Colombiana</span>
-                        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80" alt="Noticia 1">
-                    </div>
-                    <div class="sports-item-info">
-                        <div class="sports-item-meta">
-                            <span class="badge-cat">Fútbol Nacional</span>
-                            <span class="sports-item-date"><i class="fa-regular fa-clock"></i> Hace 15 minutos</span>
-                        </div>
-                        <h2>1. Junior alista nómina estelar para encarar el partido decisivo del torneo</h2>
-                        <p>El cuerpo técnico definió la alineación titular tras la última sesión de entrenamiento en la sede deportiva. Los dirigidos buscarán asegurar los tres puntos en casa ante una afición motivada.</p>
-                    </div>
-                </article>
-
-                <!-- NOTICIA 2 -->
-                <article class="sports-news-item-vertical">
-                    <div class="sports-item-img">
-                        <span class="badge-cat badge-floating" style="background:var(--blue-accent);">Selección</span>
-                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80" alt="Noticia 2">
-                    </div>
-                    <div class="sports-item-info">
-                        <div class="sports-item-meta">
-                            <span class="badge-cat" style="background:var(--blue-accent);">Eliminatorias</span>
-                            <span class="sports-item-date"><i class="fa-regular fa-clock"></i> Hace 45 minutos</span>
-                        </div>
-                        <h2>2. Convocatoria oficial de Colombia para la doble fecha internacional</h2>
-                        <p>El estratega nacional dio a conocer la lista de convocados con destacadas novedades en el ataque y la consolidación de jóvenes talentos que militan en el balompié europeo.</p>
-                    </div>
-                </article>
-
-                <!-- NOTICIA 3 -->
-                <article class="sports-news-item-vertical">
-                    <div class="sports-item-img">
-                        <span class="badge-cat badge-floating" style="background:var(--black-main);">Béisbol</span>
-                        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=600&q=80" alt="Noticia 3">
-                    </div>
-                    <div class="sports-item-info">
-                        <div class="sports-item-meta">
-                            <span class="badge-cat" style="background:var(--black-main);">Liga Profesional</span>
-                            <span class="sports-item-date"><i class="fa-regular fa-clock"></i> Hace 2 horas</span>
-                        </div>
-                        <h2>3. Caimanes de Barranquilla logran una victoria contundente y lideran la tabla</h2>
-                        <p>Con un jonrón espectacular en el octavo episodio, la novena barranquillera selló su quinta victoria consecutiva en el diamante y se afianza en el primer lugar del campeonato.</p>
-                    </div>
-                </article>
-
-                <!-- NOTICIA 4 -->
-                <article class="sports-news-item-vertical">
-                    <div class="sports-item-img">
-                        <span class="badge-cat badge-floating" style="background:var(--purple-accent);">Ciclismo</span>
-                        <img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=600&q=80" alt="Noticia 4">
-                    </div>
-                    <div class="sports-item-info">
-                        <div class="sports-item-meta">
-                            <span class="badge-cat" style="background:var(--purple-accent);">Ruta Internacional</span>
-                            <span class="sports-item-date"><i class="fa-regular fa-clock"></i> Hace 3 horas</span>
-                        </div>
-                        <h2>4. Escarabajos colombianos coronan una jornada épica de alta montaña</h2>
-                        <p>En una demostración de resistencia y estrategia colectiva, los pedalistas nacionales atacaron en el último puerto y consiguieron el 1-2 en la etapa reina europea.</p>
-                    </div>
-                </article>
-
-                <!-- NOTICIA 5 -->
-                <article class="sports-news-item-vertical">
-                    <div class="sports-item-img">
-                        <span class="badge-cat badge-floating">Champions</span>
-                        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80" alt="Noticia 5">
-                    </div>
-                    <div class="sports-item-info">
-                        <div class="sports-item-meta">
-                            <span class="badge-cat">Fútbol Europeo</span>
-                            <span class="sports-item-date"><i class="fa-regular fa-clock"></i> Hace 4 horas</span>
-                        </div>
-                        <h2>5. Anotación y asistencia de figura colombiana en torneo europeo</h2>
-                        <p>El atacante cafetero deslumbró con una actuación magistral al marcar un golazo de media distancia y servir el pase decisivo para la victoria de su club en copas internacionales.</p>
-                    </div>
-                </article>
-
-                <!-- NOTICIA 6 -->
-                <article class="sports-news-item-vertical">
-                    <div class="sports-item-img">
-                        <span class="badge-cat badge-floating" style="background:#e67e22;">Polideportivo</span>
-                        <img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&w=600&q=80" alt="Noticia 6">
-                    </div>
-                    <div class="sports-item-info">
-                        <div class="sports-item-meta">
-                            <span class="badge-cat" style="background:#e67e22;">Natación & Atletismo</span>
-                            <span class="sports-item-date"><i class="fa-regular fa-clock"></i> Hace 5 horas</span>
-                        </div>
-                        <h2>6. Delegación del Caribe consigue récord de medallas en Juegos Nacionales</h2>
-                        <p>Atletas atlánticos brillaron en las disciplinas de natación y carreras de pista, sumando más de diez preseas doradas a la tabla general de clasificación.</p>
-                    </div>
-                </article>
-
-                <!-- NOTICIA 7 -->
-                <article class="sports-news-item-vertical">
-                    <div class="sports-item-img">
-                        <span class="badge-cat badge-floating">Baloncesto</span>
-                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&q=80" alt="Noticia 7">
-                    </div>
-                    <div class="sports-item-info">
-                        <div class="sports-item-meta">
-                            <span class="badge-cat">Baloncesto Profesional</span>
-                            <span class="sports-item-date"><i class="fa-regular fa-clock"></i> Hace 6 horas</span>
-                        </div>
-                        <h2>7. Titanes de Barranquilla ultiman detalles para la semifinal del torneo</h2>
-                        <p>El quinteto barranquillero mantiene su ritmo arrollador en los playoffs y busca sellar su paso a la gran final con una victoria contundente en el coliseo local.</p>
-                    </div>
-                </article>
-
-                <!-- NOTICIA 8 -->
-                <article class="sports-news-item-vertical">
-                    <div class="sports-item-img">
-                        <span class="badge-cat badge-floating" style="background:var(--blue-accent);">Tenis</span>
-                        <img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=600&q=80" alt="Noticia 8">
-                    </div>
-                    <div class="sports-item-info">
-                        <div class="sports-item-meta">
-                            <span class="badge-cat" style="background:var(--blue-accent);">Tenis Internacional</span>
-                            <span class="sports-item-date"><i class="fa-regular fa-clock"></i> Hace 7 horas</span>
-                        </div>
-                        <h2>8. Raqueta colombiana avanza a cuartos de final en el Masters de Sudamérica</h2>
-                        <p>En un partido dramático definido en tres sets, el tenista nacional logró quebrar el servicio de su oponente y meterse entre los ocho mejores del certamen continental.</p>
-                    </div>
-                </article>
-
-                <!-- NOTICIA 9 -->
-                <article class="sports-news-item-vertical">
-                    <div class="sports-item-img">
-                        <span class="badge-cat badge-floating" style="background:var(--black-main);">Motor</span>
-                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80" alt="Noticia 9">
-                    </div>
-                    <div class="sports-item-info">
-                        <div class="sports-item-meta">
-                            <span class="badge-cat" style="background:var(--black-main);">Automovilismo</span>
-                            <span class="sports-item-date"><i class="fa-regular fa-clock"></i> Hace 8 horas</span>
-                        </div>
-                        <h2>9. Pilotos nacionales destacan en las pruebas de clasificación de la Fórmula Regional</h2>
-                        <p>Tiempos prometedores en las pruebas libres abren grandes expectativas para la escudería en el circuito internacional durante el fin de semana de carreras.</p>
-                    </div>
-                </article>
-
-                <!-- NOTICIA 10 -->
-                <article class="sports-news-item-vertical">
-                    <div class="sports-item-img">
-                        <span class="badge-cat badge-floating" style="background:var(--purple-accent);">Femenino</span>
-                        <img src="https://images.unsplash.com/photo-1517649763962-0c6232662000?auto=format&fit=crop&w=600&q=80" alt="Noticia 10">
-                    </div>
-                    <div class="sports-item-info">
-                        <div class="sports-item-meta">
-                            <span class="badge-cat" style="background:var(--purple-accent);">Fútbol Femenino</span>
-                            <span class="sports-item-date"><i class="fa-regular fa-clock"></i> Hace 9 horas</span>
-                        </div>
-                        <h2>10. La Selección Femenina inicia microciclo de preparación para la Copa América</h2>
-                        <p>Con miras al torneo continental, el cuadro tricolor entrena a doble jornada enfocándose en la parte física y en la sincronización táctica del equipo.</p>
-                    </div>
-                </article>
-
+            <main class="sports-vertical-list" id="subpage-news-list">
+                <!-- Se genera dinámicamente mediante JavaScript según la categoría seleccionada -->
             </main>
 
         </div>
@@ -2360,11 +2199,11 @@
                     <ul>
                         <li><a onclick="showView('home')" style="cursor:pointer;">Inicio</a></li>
                         <li><a onclick="showView('deportes')" style="cursor:pointer;">Deporte</a></li>
-                        <li><a href="#entretenimiento">Entretenimiento y Música</a></li>
-                        <li><a href="#eventos">Eventos</a></li>
-                        <li><a href="#nacionales">Colombia</a></li>
-                        <li><a href="#politica">Política</a></li>
-                        <li><a href="#opinion">Opinión</a></li>
+                        <li><a onclick="showView('entretenimiento')" style="cursor:pointer;">Entretenimiento y Música</a></li>
+                        <li><a onclick="showView('eventos')" style="cursor:pointer;">Eventos</a></li>
+                        <li><a onclick="showView('colombia')" style="cursor:pointer;">Colombia</a></li>
+                        <li><a onclick="showView('mundo')" style="cursor:pointer;">Mundo</a></li>
+                        <li><a onclick="showView('politica')" style="cursor:pointer;">Política</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -2388,35 +2227,220 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DE INTERACCIÓN -->
+    <!-- SCRIPT DE NAVEGACIÓN Y GENERACIÓN DINÁMICA DE SUBPÁGINAS CON 10 NOTICIAS -->
     <script>
         document.getElementById('live-date').innerText = new Date().toLocaleDateString('es-ES', {
             weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
         });
 
-        // NAVEGACIÓN ENTRE INICIO Y LA SUBPÁGINA DEDICADA DE DEPORTES
-        function showView(viewName) {
-            const homeView = document.getElementById('view-home');
-            const deportesView = document.getElementById('view-deportes');
-            const navHome = document.getElementById('nav-home');
-            const navDeportes = document.getElementById('nav-deportes');
+        // BASE DE DATOS DE CONTENIDOS PARA LAS SUBPÁGINAS DE CADA CATEGORÍA DEL MENÚ
+        const categoryData = {
+            'deportes': {
+                title: 'Portal de Deportes LaVibrante',
+                subtitle: 'Toda la actualidad del Fútbol Nacional e Internacional, Polideportivo, Béisbol y Ciclismo',
+                icon: 'fa-trophy',
+                video: 'https://www.youtube.com/embed/5D_J2M4u5Q8',
+                news: [
+                    { title: "1. Junior alista nómina estelar para encarar el partido decisivo del torneo", cat: "Fútbol Nacional", date: "Hace 15 minutos", img: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80", desc: "El cuerpo técnico definió la alineación titular tras la última sesión de entrenamiento en la sede deportiva. Los dirigidos buscarán asegurar los tres puntos en casa ante una afición motivada." },
+                    { title: "2. Convocatoria oficial de Colombia para la doble fecha internacional", cat: "Eliminatorias", date: "Hace 45 minutos", img: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=600&q=80", desc: "El estratega nacional dio a conocer la lista de convocados con destacadas novedades en el ataque y la consolidación de jóvenes talentos que militan en el balompié europeo." },
+                    { title: "3. Caimanes de Barranquilla logran una victoria contundente y lideran la tabla", cat: "Liga Profesional Béisbol", date: "Hace 2 horas", img: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=600&q=80", desc: "Con un jonrón espectacular en el octavo episodio, la novena barranquillera selló su quinta victoria consecutiva en el diamante y se afianza en el primer lugar del campeonato." },
+                    { title: "4. Escarabajos colombianos coronan una jornada épica de alta montaña", cat: "Ruta Ciclismo", date: "Hace 3 horas", img: "https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=600&q=80", desc: "En una demostración de resistencia y estrategia colectiva, los pedalistas nacionales atacaron en el último puerto y consiguieron el 1-2 en la etapa reina europea." },
+                    { title: "5. Anotación y asistencia de figura colombiana en torneo europeo", cat: "Fútbol Europeo", date: "Hace 4 horas", img: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=600&q=80", desc: "El atacante cafetero deslumbró con una actuación magistral al marcar un golazo de media distancia y servir el pase decisivo para la victoria de su club en copas internacionales." },
+                    { title: "6. Delegación del Caribe consigue récord de medallas en Juegos Nacionales", cat: "Polideportivo", date: "Hace 5 horas", img: "https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&w=600&q=80", desc: "Atletas atlánticos brillaron en las disciplinas de natación y carreras de pista, sumando más de diez preseas doradas a la tabla general de clasificación." },
+                    { title: "7. Titanes de Barranquilla ultiman detalles para la semifinal del torneo", cat: "Baloncesto Profesional", date: "Hace 6 horas", img: "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&q=80", desc: "El quinteto barranquillero mantiene su ritmo arrollador en los playoffs y busca sellar su paso a la gran final con una victoria contundente en el coliseo local." },
+                    { title: "8. Raqueta colombiana avanza a cuartos de final en el Masters de Sudamérica", cat: "Tenis Internacional", date: "Hace 7 horas", img: "https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=600&q=80", desc: "En un partido dramático definido en tres sets, el tenista nacional logró quebrar el servicio de su oponente y meterse entre los ocho mejores del certamen continental." },
+                    { title: "9. Pilotos nacionales destacan en las pruebas de clasificación de la Fórmula Regional", cat: "Automovilismo", date: "Hace 8 horas", img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80", desc: "Tiempos prometedores en las pruebas libres abren grandes expectativas para la escudería en el circuito internacional durante el fin de semana de carreras." },
+                    { title: "10. La Selección Femenina inicia microciclo de preparación para la Copa América", cat: "Fútbol Femenino", date: "Hace 9 horas", img: "https://images.unsplash.com/photo-1517649763962-0c6232662000?auto=format&fit=crop&w=600&q=80", desc: "Con miras al torneo continental, el cuadro tricolor entrena a doble jornada enfocándose en la parte física y en la sincronización táctica del equipo." }
+                ]
+            },
+            'entretenimiento': {
+                title: 'Portal de Entretenimiento & Música',
+                subtitle: 'Conciertos, cine, tendencias de la farándula y lanzamientos musicales',
+                icon: 'fa-music',
+                video: 'https://www.youtube.com/embed/0IXeIrYX2NU',
+                news: [
+                    { title: "1. Anuncian las fechas oficiales de la gira internacional de música latina", cat: "Música & Conciertos", date: "Hace 20 minutos", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80", desc: "Los principales escenarios del país albergarán espectáculos de primer nivel con una producción técnica imponente para miles de espectadores." },
+                    { title: "2. La producción de cine filmed en la Región Caribe bate récords en taquilla", cat: "Cine Nacional", date: "Hace 1 hora", img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=80", desc: "Críticos internacionales destacan la fotografía y narrativa de la película colombiana que se posiciona entre las más vistas de la temporada." },
+                    { title: "3. Artistas locales presentan álbum colaborativo rindiendo homenaje al folclor", cat: "Lanzamientos", date: "Hace 2 horas", img: "https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=600&q=80", desc: "Fusionando sonidos tradicionales con ritmos modernos, el proyecto musical se convierte en tendencia inmediata en plataformas digitales." },
+                    { title: "4. Pasarela de moda caribeña impacta con colecciones inspiradas en la naturaleza", cat: "Moda & Estilo", date: "Hace 3 horas", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80", desc: "Diseñadores de renombre nacional mostraron sus creaciones sostenibles ante compradores y medios especializados del sector." },
+                    { title: "5. Festival de Teatro de Calle llena de color y arte los parques de la ciudad", cat: "Cultura & Arte", date: "Hace 4 horas", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80", desc: "Agrupaciones internacionales participan en talleres y presentaciones gratuitas para toda la familia durante esta semana festiva." },
+                    { title: "6. Entrevista exclusiva con los protagonistas de la serie de televisión del momento", cat: "Series & Streaming", date: "Hace 5 horas", img: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=600&q=80", desc: "Conversamos sobre los secretos detrás de cámaras, el entrenamiento de los actores y los detalles de la nueva temporada." },
+                    { title: "7. Gala de premios a la música reconoce la trayectoria de grandes iconos", cat: "Premios & Farándula", date: "Hace 6 horas", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80", desc: "Una velada inolvidable llena de homenajes en vivo y momentos de emoción compartidos por las celebridades más populares." },
+                    { title: "8. El regreso del género urbano a las listas globales de reproducción", cat: "Tendencias Musicales", date: "Hace 7 horas", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80", desc: "Récords de escuchas en plataformas de streaming confirman la hegemonía de las nuevas canciones de los artistas caribeños." },
+                    { title: "9. Documental sobre la historia musical de Barranquilla se estrena en streaming", cat: "Cultura Digital", date: "Hace 8 horas", img: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80", desc: "Un recorrido histórico por los ritmos y grandes compositores que posicionaron a la ciudad como la cuna de la alegría." },
+                    { title: "10. Exposiciones fotográficas rinden tributo a las manifestaciones populares", cat: "Exposiciones", date: "Hace 9 horas", img: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=600&q=80", desc: "Fotógrafos reconocidos plasman en imágenes inéditas la esencia y pasión de los bailes y fiestas tradicionales." }
+                ]
+            },
+            'eventos': {
+                title: 'Portal de Eventos & Espectáculos',
+                subtitle: 'Festivales, ferias comerciales, agenda cultural y congresos internacionales',
+                icon: 'fa-calendar-check',
+                video: 'https://www.youtube.com/embed/D5o-gDcHVTE',
+                news: [
+                    { title: "1. Presentan la programación oficial de los eventos masivos de la temporada", cat: "Agenda Cultural", date: "Hace 20 minutos", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80", desc: "Las autoridades organizadoras anunciaron las rutas, medidas de seguridad y sorpresas para las principales celebraciones populares." },
+                    { title: "2. Cumbre internacional de innovación y emprendimiento reúne a miles de asistentes", cat: "Congresos & Ferias", date: "Hace 1 hora", img: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80", desc: "Expertos globales comparten ponencias magistrales sobre inteligencia artificial, biotecnología y financiamiento de startups." },
+                    { title: "3. Gran feria gastronómica 'Sabor Caribe' abrirá sus puertas en el centro de convenciones", cat: "Gastronomía", date: "Hace 2 horas", img: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80", desc: "Chefs galardonados ofrecerán degustaciones, talleres en vivo y shows culinarios destacando los ingredientes de la región." },
+                    { title: "4. Festival Internacional de Danza reúne compañías de más de quince países", cat: "Artes Escénicas", date: "Hace 3 horas", img: "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=600&q=80", desc: "Los teatros principales de la ciudad vibran con espectáculos de ballet clásico, folclor autóctono y danza contemporánea." },
+                    { title: "5. Concierto benéfico reúne a grandes estrellas para recaudar fondos de infraestructura", cat: "Filantropía", date: "Hace 4 horas", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=600&q=80", desc: "Miles de asistentes apoyaron la iniciativa solidaria en una noche llena de música y compromiso con la comunidad." },
+                    { title: "6. Maratón atlética internacional de la ciudad confirma más de 10.000 inscritos", cat: "Eventos Deportivos", date: "Hace 5 horas", img: "https://images.unsplash.com/photo-1452626038306-9aae5e071dd3?auto=format&fit=crop&w=600&q=80", desc: "Atletas de élite y aficionado recorrerán las principales avenidas en una jornada de integración deportiva e historia." },
+                    { title: "7. Exposición automotriz presenta los vehículos eléctricos de última generación", cat: "Motor & Tecnología", date: "Hace 6 horas", img: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80", desc: "Marcas automotrices exhiben sus nuevos modelos sostenibles y ofrecen pruebas de manejo a los visitantes apasionados." },
+                    { title: "8. Encuentro de escritores y feria del libro fomenta la lectura en jóvenes", cat: "Literatura & Educación", date: "Hace 7 horas", img: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=600&q=80", desc: "Lanzamientos de novelas, firmas de libros y conversatorios con destacados autores nacionales marcan la pauta literaria." },
+                    { title: "9. Festival de cine al aire libre lleva proyecciones gratuitas a los barrios", cat: "Comunidad", date: "Hace 8 horas", img: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=600&q=80", desc: "Familias disfrutan de películas educativas y cortometrajes locales en pantallas gigantes instaladas en parques principales." },
+                    { title: "10. Foro de turismo y hospitalidad proyecta récords de ocupación hotelera", cat: "Turismo", date: "Hace 9 horas", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80", desc: "Líderes del sector turístico debaten estrategias de desarrollo sostenible y atracción de inversiones internacionales." }
+                ]
+            },
+            'colombia': {
+                title: 'Portal de Noticias Colombia',
+                subtitle: 'Toda la información nacional, regiones, economía y desarrollo territorial',
+                icon: 'fa-flag',
+                video: 'https://www.youtube.com/embed/D5o-gDcHVTE',
+                news: [
+                    { title: "1. Megaproyectos viales de cuarta generación conectarán el centro con las costas", cat: "Infraestructura Nacional", date: "Hace 15 minutos", img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=600&q=80", desc: "El Ministerio de Transporte anunció la entrega de tramos clave que reducirán los tiempos de desplazamiento de carga y pasajeros." },
+                    { title: "2. Estrategia ambiental nacional protege miles de hectáreas de Parques Naturales", cat: "Medio Ambiente", date: "Hace 40 minutos", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80", desc: "Iniciativas de reforestación y guardabosques comunitarios fortalecen la conservación de los ecosistemas estratégicos en el país." },
+                    { title: "3. Transformación digital en escuelas rurales conecta a estudiantes de zonas alejadas", cat: "Educación & Tecnología", date: "Hace 1 hora", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80", desc: "Programas de conectividad satelital y entrega de dispositivos dotan de herramientas tecnológicas a las nuevas generaciones." },
+                    { title: "4. Fortalecimiento del sistema de salud preventiva en departamentos del país", cat: "Salud Pública", date: "Hace 2 horas", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80", desc: "Nuevos equipos médicos itinerantes brindan atención de calidad y prevención de enfermedades en municipios prioritarios." },
+                    { title: "5. Reporte positivo de exportaciones agrícolas en el sector cafetero y cacaotero", cat: "Agroindustria", date: "Hace 3 horas", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80", desc: "Productores nacionales celebran la apertura de mercados internacionales y el incremento en el consumo de productos de origen." },
+                    { title: "6. Alianzas universitarias impulsan la investigación científica y la innovación", cat: "Ciencia & Desarrollo", date: "Hace 4 horas", img: "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=600&q=80", desc: "Redes académicas presentan avances en energías renovables, tratamiento de aguas e investigación biológica aplicada." },
+                    { title: "7. Balance positivo del turismo interno en los principales destinos ecológicos", cat: "Turismo Nacional", date: "Hace 5 horas", img: "https://images.unsplash.com/photo-1473186578172-c141e6798cf4?auto=format&fit=crop&w=600&q=80", desc: "Millones de colombianos recorrieron los parques y ciudades históricas generando un dinamismo económico destacado." },
+                    { title: "8. Planes de inversión social beneficien a miles de familias en programas de vivienda", cat: "Desarrollo Social", date: "Hace 6 horas", img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80", desc: "Entrega de viviendas de interés prioritario mejora las condiciones de vida en comunidades vulnerables del territorio." },
+                    { title: "9. Encuentro nacional de alcaldes aprueba agenda conjunta para el desarrollo regional", cat: "Gestión Pública", date: "Hace 7 horas", img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80", desc: "Los mandatarios consensuaron proyectos prioritarios de conectividad, agua potable y seguridad para los próximos años." },
+                    { title: "10. Inversiones en energías limpias posicionan a Colombia como referente regional", cat: "Energía & Futuro", date: "Hace 8 horas", img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80", desc: "Parques eólicos y solares entran en funcionamiento aportando al sistema interconectado nacional de energía limpia." }
+                ]
+            },
+            'mundo': {
+                title: 'Portal de Noticias Mundo',
+                subtitle: 'Actualidad internacional, geopolítica, economía global y tecnología mundial',
+                icon: 'fa-globe',
+                video: 'https://www.youtube.com/embed/426027552',
+                news: [
+                    { title: "1. Cumbre mundial sobre transición energética define metas globales acordadas", cat: "Internacional", date: "Hace 20 minutos", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80", desc: "Líderes de más de ochenta naciones firmaron tratados históricos para reducir emisiones y promover inversiones verdes de gran escala." },
+                    { title: "2. Avances en acuerdos comerciales multilaterales benefician a economías emergentes", cat: "Geopolítica", date: "Hace 1 hora", img: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=600&q=80", desc: "Negociaciones internacionales reducen aranceles y abren oportunidades para el intercambio de bienes tecnológicos y alimentos." },
+                    { title: "3. Descubrimientos astronómicos inéditos captados por telescopios espaciales", cat: "Ciencia Espacial", date: "Hace 2 horas", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80", desc: "Científicos revelan imágenes detalladas de exoplanetas lejanos con condiciones atmosféricas de gran interés científico." },
+                    { title: "4. Reporte económico de los mercados financieros internacionales muestra estabilidad", cat: "Economía Global", date: "Hace 3 horas", img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80", desc: "Bancos centrales ajustan proyecciones de crecimiento mundial tras la recuperación gradual del comercio en continentes clave." },
+                    { title: "5. Innovaciones médicas globales prometen tratamientos efectivos contra enfermedades", cat: "Salud Global", date: "Hace 4 horas", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80", desc: "Fases avanzadas de ensayos clínicos demuestran alta efectividad en terapias génicas desarrolladas por centros internacionales." },
+                    { title: "6. Foro de aviación internacional aprueba estándares para vuelos sostenibles", cat: "Transporte Global", date: "Hace 5 horas", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80", desc: "Aerolíneas mundiales adoptan combustibles ecológicos para reducir la huella de carbono en rutas de larga distancia." },
+                    { title: "7. Tecnológicas globales presentan sus últimos modelos de Inteligencia Artificial", cat: "Tecnología Global", date: "Hace 6 horas", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80", desc: "Herramientas de lenguaje y visión por computadora revolucionan los procesos industriales, educativos y creativos." },
+                    { title: "8. Convenios culturales internacionales fomentan la protección del patrimonio", cat: "Patrimonio Mundial", date: "Hace 7 horas", img: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80", desc: "Unesco declara nuevos sitios de valor histórico universal protegiendo monumentos e identidades ancestrales." },
+                    { title: "9. Iniciativas globales de conservación marina protegen la biodiversidad oceánica", cat: "Océanos & Planeta", date: "Hace 8 horas", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80", desc: "Santuarios marinos internacionales aseguran el cuidado de especies en peligro y arrecifes de coral amenazados." },
+                    { title: "10. Encuentro diplomático de alto nivel promueve la cooperación en ciberseguridad", cat: "Seguridad Digital", date: "Hace 9 horas", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80", desc: "Países firmantes establecen protocolos internacionales para blindar infraestructuras críticas ante amenazas digitales." }
+                ]
+            },
+            'politica': {
+                title: 'Portal de Política & Análisis',
+                subtitle: 'Debates en el Congreso, análisis de gobernabilidad, reformas e instituciones',
+                icon: 'fa-landmark',
+                video: 'https://www.youtube.com/embed/5D_J2M4u5Q8',
+                news: [
+                    { title: "1. Avanzan debates legislativos en el Congreso sobre reformas clave", cat: "Congreso", date: "Hace 20 minutos", img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80", desc: "Senadores y representantes discuten ponencias sobre inversión social, salud y descentralización administrativa." },
+                    { title: "2. Acuerdos de gobernabilidad buscan consensos entre bancadas políticas", cat: "Gobernabilidad", date: "Hace 1 hora", img: "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=600&q=80", desc: "Líderes de partidos se reunieron en la capital para consensuar articulados prioritarios de la agenda económica." },
+                    { title: "3. Análisis de las encuestas de opinión y el escenario de gobernabilidad territorial", cat: "Análisis Político", date: "Hace 2 horas", img: "https://images.unsplash.com/photo-1575320181282-9afab399332c?auto=format&fit=crop&w=600&q=80", desc: "Analistas evalúan el impacto de las políticas públicas y la percepción ciudadana en las principales ciudades." },
+                    { title: "4. Propuestas de modificación a las normas de contratación e inversión pública", cat: "Transparencia", date: "Hace 3 horas", img: "https://images.unsplash.com/photo-1555848962-6e79363ec58f?auto=format&fit=crop&w=600&q=80", desc: "Iniciativas parlamentarias buscan agilizar la ejecución de obras fortaleciendo los mecanismos de vigilancia fiscal." },
+                    { title: "5. Protocolos y avances en las relaciones diplomáticas internacionales", cat: "Cancillería", date: "Hace 4 horas", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80", desc: "Embajadores y diplomáticos sostienen encuentros de cooperación técnica en comercio, turismo e intercambio cultural." },
+                    { title: "6. Foros de descentralización impulsan mayor autonomía a los departamentos", cat: "Regiones", date: "Hace 5 horas", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80", desc: "Gobernadores presentan propuestas para fortalecer los fondos de inversión regional e infraestructura local." },
+                    { title: "7. Balance de gestión institucional presentado por los entes de control", cat: "Institucional", date: "Hace 6 horas", img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80", desc: "Organismos fiscalizadores rinden cuentas sobre los procesos de auditoría y protección de los recursos públicos." },
+                    { title: "8. Posturas de partidos políticos frente a las nuevas medidas fiscales", cat: "Debate Político", date: "Hace 7 horas", img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80", desc: "Representantes gremiales y legisladores exponen sus propuestas en audiencias públicas de consulta ciudadana." },
+                    { title: "9. Iniciativas de inclusión de jóvenes en cargos de representación pública", cat: "Juventud & Democracia", date: "Hace 8 horas", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80", desc: "Estrategias de participación incentivan la vinculación activa de nuevos liderazgos en la toma de decisiones." },
+                    { title: "10. Seminario internacional de ciencias políticas y buen gobierno en la ciudad", cat: "Academia", date: "Hace 9 horas", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80", desc: "Expertos universitarios analizan los desafíos de la democracia digital y el fortalecimiento institucional en América Latina." }
+                ]
+            },
+            'noticias-generales': {
+                title: 'Portal de Noticias Generales',
+                subtitle: 'Información de actualidad, sociedad, ciencia, salud, tecnología y economía',
+                icon: 'fa-newspaper',
+                video: 'https://www.youtube.com/embed/D5o-gDcHVTE',
+                news: [
+                    { title: "1. Informe especial sobre las tendencias tecnológicas que transforman la industria", cat: "Tecnología", date: "Hace 15 minutos", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80", desc: "Sistemas inteligentes y automatización redefinen la productividad de pequeñas, medianas y grandes empresas." },
+                    { title: "2. Nuevos centros médicos especializados fortalecen la atención preventiva", cat: "Salud", date: "Hace 30 minutos", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80", desc: "Instalaciones de última tecnología abren sus puertas para brindar diagnósticos oportunos a miles de familias." },
+                    { title: "3. Proyectos de energía solar en comunidades rurales reducen costos de servicio", cat: "Sostenibilidad", date: "Hace 1 hora", img: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80", desc: "Soluciones de energía limpia benefician a poblados alejados garantizando suministro ininterrumpido y sostenible." },
+                    { title: "4. Reporte positivo del empleo y la capacitación en habilidades digitales", cat: "Economía & Sociedad", date: "Hace 2 horas", img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=600&q=80", desc: "Alianzas educativas forman a miles de ciudadanos en programación, diseño y gestión de proyectos tecnológicos." },
+                    { title: "5. Avances en infraestructura vial optimizan la movilidad en corredores principales", cat: "Movilidad", date: "Hace 3 horas", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80", desc: "Intersecciones inteligentes y ampliaciones de carriles mejoran el flujo vehicular en horas pico." },
+                    { title: "6. Programas de reciclaje y cultura ciudadana logran métricas históricas", cat: "Medio Ambiente", date: "Hace 4 horas", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80", desc: "Comunidades organizadas recolectan toneladas de plástico y material reutilizable en jornadas ambientales." },
+                    { title: "7. Iniciativas de emprendimiento femenino reciben capital semilla para expansión", cat: "Emprendimiento", date: "Hace 5 horas", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80", desc: "Mujeres empresarias lideran negocios de impacto social, producción local y soluciones digitales innovadoras." },
+                    { title: "8. Campañas de seguridad vial reducen índices de siniestralidad en carreteras", cat: "Sociedad", date: "Hace 6 horas", img: "https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=600&q=80", desc: "Pedagogía urbana y controles preventivos generan concientización en conductores de transporte público y particular." },
+                    { title: "9. Descubrimientos arqueológicos revelan vestigios ancestrales en el Caribe", cat: "Historia & Ciencia", date: "Hace 7 horas", img: "https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=600&q=80", desc: "Antropólogos identifican piezas cerámicas e instrumentos antiguos que enriquecen la historia prehispánica regional." },
+                    { title: "10. Ferias de ciencia e innovación escolar premian la creatividad de los jóvenes", cat: "Educación", date: "Hace 8 horas", img: "https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?auto=format&fit=crop&w=600&q=80", desc: "Estudiantes de colegios locales presentan prototipos robóticos, filtros ecológicos y proyectos de investigación." }
+                ]
+            },
+            'contactanos': {
+                title: 'Portal de Contacto & Publicidad',
+                subtitle: 'Anuncia tu marca con nosotros, envía tus boletines o contáctanos directamente',
+                icon: 'fa-envelope',
+                video: 'https://www.youtube.com/embed/5D_J2M4u5Q8',
+                news: [
+                    { title: "1. Opciones de Pauta Publicitaria y Banners de Alto Impacto en LaVibrante.com", cat: "Comercial & Pauta", date: "Disponible Hoy", img: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=600&q=80", desc: "Posiciona tu marca ante miles de lectores diarios con banners adaptables, contenidos patrocinados y coberturas en vivo." },
+                    { title: "2. Envía tus comunicados de prensa y noticias a nuestro equipo de redacción", cat: "Redacción & Prensa", date: "Disponible Hoy", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80", desc: "Recibimos información institucional, boletines de prensa y lanzamientos para difusión en nuestros canales digitales." },
+                    { title: "3. Cobertura de eventos corporativos y transmisiones en vivo por LaVibrante Radio & TV", cat: "Transmisiones", date: "Disponible Hoy", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80", desc: "Lleva tus lanzamientos, ruedas de prensa y celebraciones a toda nuestra audiencia digital a través de streaming profesional." },
+                    { title: "4. Asesoría personalizada en marketing de contenidos e influyentes locales", cat: "Estrategia Digital", date: "Disponible Hoy", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80", desc: "Diseñamos campañas a la medida con métricas transparentes e impacto directo en tu segmento de clientes objetivo." },
+                    { title: "5. Suscripción a nuestro boletín digital de noticias diarias y resumen informativo", cat: "Newsletter", date: "Disponible Hoy", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80", desc: "Recibe directamente en tu correo electrónico lo más relevante acontecido en la ciudad, el Caribe y el país." },
+                    { title: "6. Espacios publicitarios en programas en vivo: Enfoque Informativo y El Jangueo", cat: "Programas TV", date: "Disponible Hoy", img: "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=600&q=80", desc: "Menciones en directo, menciones patrocinadas y presencia de marca en nuestra parrilla audiovisual oficial." },
+                    { title: "7. Oportunidades de empleo y prácticas profesionales en periodismo y comunicación", cat: "Trabaja con Nosotros", date: "Disponible Hoy", img: "https://images.unsplash.com/photo-1522869635100-9f4c5e86aa37?auto=format&fit=crop&w=600&q=80", desc: "Sumate al equipo humano de LaVibrante.com. Buscamos talentos apasionados por la información y los medios digitales." },
+                    { title: "8. Directorio telefónico y sedes administrativas de LaVibrante en el Caribe", cat: "Sedes Oficiales", date: "Disponible Hoy", img: "https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=600&q=80", desc: "Conoce nuestras líneas de atención telefónica, horarios y ubicación de nuestras oficinas centrales de redacción." },
+                    { title: "9. Políticas de privacidad, ética periodística y compromiso con nuestros lectores", cat: "Transparencia", date: "Disponible Hoy", img: "https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=600&q=80", desc: "Garantizamos un periodismo veraz, imparcial y guiado por el código de autorregulación y ética de medios digitales." },
+                    { title: "10. Canal directo de WhatsApp para reporte ciudadano y noticias de la comunidad", cat: "Línea Ciudadana", date: "Disponible Hoy", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=600&q=80", desc: "Envía tus denuncias comunitarias, fotos y reportes en tiempo real a nuestra línea directa de WhatsApp de atención al ciudadano." }
+                ]
+            }
+        };
 
-            if (viewName === 'deportes') {
-                homeView.classList.add('hidden');
-                deportesView.classList.remove('hidden');
-                navHome.classList.remove('active-link');
-                navDeportes.classList.add('active-link');
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                deportesView.classList.add('hidden');
+        // NAVEGACIÓN Y CARGA DINÁMICA DE VISTAS (SINGLE PAGE APPLICATION)
+        function showView(viewName) {
+            closeSidebar();
+
+            const homeView = document.getElementById('view-home');
+            const categorySubpageView = document.getElementById('view-category-subpage');
+
+            // Resetear enlaces del menú principal
+            const navLinks = document.querySelectorAll('.cnn-nav-links a');
+            navLinks.forEach(link => link.classList.remove('active-link'));
+
+            if (viewName === 'home') {
+                categorySubpageView.classList.add('hidden');
                 homeView.classList.remove('hidden');
-                navDeportes.classList.remove('active-link');
-                navHome.classList.add('active-link');
+                document.getElementById('nav-home')?.classList.add('active-link');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (categoryData[viewName]) {
+                // Cargar datos de la subpágina correspondiente
+                const data = categoryData[viewName];
+
+                document.getElementById('subpage-title').innerText = data.title;
+                document.getElementById('subpage-subtitle').innerText = data.subtitle;
+                document.getElementById('subpage-icon').className = `fa-solid ${data.icon}`;
+                document.getElementById('subpage-video').src = data.video;
+
+                // Renderizar las 10 noticias verticales en la columna derecha
+                const newsListContainer = document.getElementById('subpage-news-list');
+                newsListContainer.innerHTML = '';
+
+                data.news.forEach(item => {
+                    const articleHTML = `
+                        <article class="sports-news-item-vertical">
+                            <div class="sports-item-img">
+                                <span class="badge-cat badge-floating">${item.cat}</span>
+                                <img src="${item.img}" alt="${item.title}">
+                            </div>
+                            <div class="sports-item-info">
+                                <div class="sports-item-meta">
+                                    <span class="badge-cat">${item.cat}</span>
+                                    <span class="sports-item-date"><i class="fa-regular fa-clock"></i> ${item.date}</span>
+                                </div>
+                                <h2>${item.title}</h2>
+                                <p>${item.desc}</p>
+                            </div>
+                        </article>
+                    `;
+                    newsListContainer.insertAdjacentHTML('beforeend', articleHTML);
+                });
+
+                // Resaltar categoría en el menú
+                const activeNav = document.getElementById(`nav-${viewName}`);
+                if (activeNav) activeNav.classList.add('active-link');
+
+                homeView.classList.add('hidden');
+                categorySubpageView.classList.remove('hidden');
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
 
-        // LÓGICA DEL MENÚ HAMBURGUESA DESPLEGABLE
+        // LÓGICA DEL MENÚ LATERAL HAMBURGUESA
         const openSidebarBtn = document.getElementById('openSidebar');
         const closeSidebarBtn = document.getElementById('closeSidebar');
         const sidebarMenu = document.getElementById('sidebarMenu');
