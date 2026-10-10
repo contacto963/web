@@ -68,7 +68,7 @@
             color: var(--yellow-accent);
         }
 
-        /* 2. MENÚ PRINCIPAL TIPO CNN */
+        /* 2. MENÚ PRINCIPAL Y SUBMENÚ */
         .cnn-header-container {
             background-color: var(--white);
             border-bottom: 1px solid var(--grey-border);
@@ -98,6 +98,12 @@
             font-size: 1.2rem;
             color: var(--black-main);
             cursor: pointer;
+            padding: 5px;
+            transition: color 0.2s;
+        }
+
+        .hamburger-btn:hover {
+            color: var(--red-main);
         }
 
         .logo-cnn-style {
@@ -124,15 +130,16 @@
         .cnn-nav-links {
             display: flex;
             list-style: none;
-            gap: 16px;
+            gap: 14px;
             align-items: center;
         }
 
         .cnn-nav-links a {
             color: var(--black-main);
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             transition: color 0.2s;
+            white-space: nowrap;
         }
 
         .cnn-nav-links a:hover {
@@ -142,7 +149,7 @@
         .cnn-right-actions {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             font-size: 0.82rem;
             font-weight: 700;
             color: var(--black-main);
@@ -155,23 +162,15 @@
             cursor: pointer;
         }
 
-        .live-red-dot {
-            width: 7px;
-            height: 7px;
-            background-color: var(--red-main);
-            border-radius: 50%;
-            display: inline-block;
-        }
-
         .sign-in-box {
             border: 1px solid #ccc;
-            padding: 3px 12px;
+            padding: 3px 10px;
             border-radius: 12px;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 700;
         }
 
-        /* BARRA DE TEMAS CENTRADOS */
+        /* BARRA DE SUBMENÚ */
         .cnn-subnav-bar {
             max-width: 1140px;
             margin: 0 auto;
@@ -181,7 +180,7 @@
             align-items: center;
             gap: 14px;
             font-size: 0.82rem;
-            font-weight: 500;
+            font-weight: 600;
             color: #333;
             overflow-x: auto;
             white-space: nowrap;
@@ -195,6 +194,109 @@
         .cnn-subnav-bar a:hover {
             text-decoration: underline;
             color: var(--red-main);
+        }
+
+        /* ESTILOS DEL MENÚ LATERAL DESPLEGABLE (OFF-CANVAS) */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(3px);
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar-menu {
+            position: fixed;
+            top: 0;
+            left: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: var(--black-main);
+            color: var(--white);
+            z-index: 2001;
+            box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+            transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .sidebar-menu.active {
+            left: 0;
+        }
+
+        .sidebar-header {
+            padding: 16px 20px;
+            background-color: var(--grey-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid var(--red-main);
+        }
+
+        .close-sidebar-btn {
+            font-size: 1.4rem;
+            color: var(--white);
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .close-sidebar-btn:hover {
+            color: var(--red-main);
+        }
+
+        .sidebar-content {
+            padding: 20px;
+        }
+
+        .sidebar-section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--yellow-accent);
+            font-weight: 800;
+            margin-bottom: 12px;
+            margin-top: 10px;
+            padding-bottom: 4px;
+            border-bottom: 1px solid #333;
+        }
+
+        .sidebar-links {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-links li {
+            margin-bottom: 2px;
+        }
+
+        .sidebar-links a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            color: #ddd;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        .sidebar-links a:hover {
+            background-color: var(--red-main);
+            color: var(--white);
+            padding-left: 18px;
         }
 
         /* 3. CINTA DE ÚLTIMA HORA */
@@ -236,7 +338,7 @@
             100% { transform: translate(-100%, 0); }
         }
 
-        /* 4. ESTRUCTURA GENERAL WEB NORMAL (1140PX) */
+        /* 4. ESTRUCTURA GENERAL */
         .container {
             max-width: 1140px;
             margin: 24px auto;
@@ -828,7 +930,7 @@
             text-transform: uppercase;
         }
 
-        /* NUEVA SECCIÓN DE OPINIÓN */
+        /* SECCIÓN DE OPINIÓN */
         .opinion-section {
             background: var(--white);
             border-radius: 10px;
@@ -915,7 +1017,7 @@
             color: var(--red-main);
         }
 
-        /* BARRA LATERAL Y BANNERS PUBLICITARIOS 300x600 */
+        /* BARRA LATERAL Y BANNERS PUBLICITARIOS */
         .sidebar-widget {
             background-color: var(--white);
             border-radius: 10px;
@@ -1073,6 +1175,40 @@
 </head>
 <body>
 
+    <!-- FONDO Y BARRA VERTICAL LATERAL (MENÚ HAMBURGUESA) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div class="sidebar-header">
+            <a href="#" class="logo-cnn-style">LaVibrante<span>.com</span></a>
+            <i class="fa-solid fa-xmark close-sidebar-btn" id="closeSidebar"></i>
+        </div>
+        <div class="sidebar-content">
+            <div class="sidebar-section-title">Menú Principal</div>
+            <ul class="sidebar-links">
+                <li><a href="#"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                <li><a href="#deportes"><i class="fa-solid fa-trophy"></i> Deporte</a></li>
+                <li><a href="#entretenimiento"><i class="fa-solid fa-music"></i> Entretenimiento y Música</a></li>
+                <li><a href="#eventos"><i class="fa-solid fa-calendar-check"></i> Eventos</a></li>
+                <li><a href="#nacionales"><i class="fa-solid fa-flag"></i> Colombia</a></li>
+                <li><a href="#mundo"><i class="fa-solid fa-globe"></i> Mundo</a></li>
+                <li><a href="#politica"><i class="fa-solid fa-landmark"></i> Política</a></li>
+                <li><a href="#noticias-generales"><i class="fa-solid fa-newspaper"></i> Noticias Generales</a></li>
+                <li><a href="#contactanos"><i class="fa-solid fa-envelope"></i> Contáctanos</a></li>
+            </ul>
+
+            <div class="sidebar-section-title">Especiales & Radio</div>
+            <ul class="sidebar-links">
+                <li><a href="#"><i class="fa-solid fa-rainbow"></i> LGTBI</a></li>
+                <li><a href="#"><i class="fa-solid fa-radio"></i> LaVibrante Radio</a></li>
+                <li><a href="#"><i class="fa-solid fa-headphones"></i> Escucha en Vivo</a></li>
+                <li><a href="#programas"><i class="fa-solid fa-tv"></i> Programas</a></li>
+                <li><a href="#"><i class="fa-solid fa-users"></i> Staff LaVibrante.com</a></li>
+                <li><a href="#"><i class="fa-solid fa-utensils"></i> Sabor Vibrante</a></li>
+                <li><a href="#"><i class="fa-solid fa-circle" style="color:var(--red-main);"></i> LIVE</a></li>
+            </ul>
+        </div>
+    </div>
+
     <!-- BARRA SUPERIOR -->
     <div class="top-bar">
         <div class="top-bar-inner">
@@ -1081,50 +1217,47 @@
             </div>
             <div class="top-bar-links">
                 <a href="#edicion-digital"><i class="fa-solid fa-newspaper"></i> Edición Digital</a>
-                <a href="#"><i class="fa-solid fa-envelope"></i> Contacto / Pauta</a>
+                <a href="#contactanos"><i class="fa-solid fa-envelope"></i> Contáctanos / Pauta</a>
             </div>
         </div>
     </div>
 
-    <!-- ENCABEZADO ESTILO CNN -->
+    <!-- ENCABEZADO CON MENÚ EN ESPAÑOL -->
     <div class="cnn-header-container">
         <div class="cnn-navbar">
             <div class="cnn-left-group">
-                <i class="fa-solid fa-bars hamburger-btn"></i>
+                <i class="fa-solid fa-bars hamburger-btn" id="openSidebar"></i>
                 <a href="#" class="logo-cnn-style">LaVibrante<span>.com</span></a>
             </div>
 
+            <!-- MENÚ PRINCIPAL AJUSTADO -->
             <ul class="cnn-nav-links">
-                <li><a href="#">US</a></li>
-                <li><a href="#">World</a></li>
-                <li><a href="#politica">Politics</a></li>
-                <li><a href="#economia">Business</a></li>
-                <li><a href="#">Health</a></li>
-                <li><a href="#entretenimiento">Entertainment</a></li>
-                <li><a href="#">Style</a></li>
-                <li><a href="#">Travel</a></li>
-                <li><a href="#deportes">Sports</a></li>
-                <li><a href="#opinion">Opinion</a></li>
-                <li><a href="#">More <i class="fa-solid fa-chevron-down" style="font-size:0.65rem;"></i></a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#deportes">Deporte</a></li>
+                <li><a href="#entretenimiento">Entretenimiento y Música</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#nacionales">Colombia</a></li>
+                <li><a href="#mundo">Mundo</a></li>
+                <li><a href="#politica">Política</a></li>
+                <li><a href="#noticias-generales">Noticias Generales</a></li>
+                <li><a href="#contactanos">Contáctanos</a></li>
             </ul>
 
             <div class="cnn-right-actions">
-                <div class="cnn-action-btn"><span class="live-red-dot"></span> Watch</div>
-                <div class="cnn-action-btn"><i class="fa-solid fa-headphones"></i> Listen</div>
                 <div class="cnn-action-btn"><i class="fa-solid fa-magnifying-glass"></i></div>
-                <div class="sign-in-box">Sign In</div>
+                <div class="sign-in-box">Ingresar</div>
             </div>
         </div>
 
-        <!-- BARRA DE TEMAS CENTRADOS -->
+        <!-- SUBMENÚ CON "ESCUCHA EN VIVO" -->
         <div class="cnn-subnav-bar">
-            <a href="#">Nobel Peace Prize</a> <span class="separator">|</span>
-            <a href="#">Strait of Hormuz</a> <span class="separator">|</span>
-            <a href="#">Cornell latest</a> <span class="separator">|</span>
-            <a href="#">Epstein floods midterms</a> <span class="separator">|</span>
-            <a href="#">Giant tortoises</a> <span class="separator">|</span>
-            <a href="#">'Crazy Rich Asians'</a> <span class="separator">|</span>
-            <a href="#">Look of the Week</a>
+            <a href="#">LGTBI</a> <span class="separator">|</span>
+            <a href="#">LaVibrante Radio - #1 HIT MUSIC STATION</a> <span class="separator">|</span>
+            <a href="#"><i class="fa-solid fa-headphones" style="color:var(--red-main);"></i> Escucha en Vivo</a> <span class="separator">|</span>
+            <a href="#programas">Programas</a> <span class="separator">|</span>
+            <a href="#">Staff LaVibrante.com</a> <span class="separator">|</span>
+            <a href="#">Sabor Vibrante</a> <span class="separator">|</span>
+            <a href="#"><i class="fa-solid fa-circle" style="color:var(--red-main); font-size:0.6rem;"></i> LIVE</a>
         </div>
     </div>
 
@@ -1356,10 +1489,10 @@
                     </div>
                 </section>
 
-                <!-- SECCIÓN NACIONALES -->
+                <!-- SECCIÓN COLOMBIA (NACIONALES) -->
                 <section id="nacionales" style="margin-bottom: 28px;">
                     <div class="section-header">
-                        <h2><i class="fa-solid fa-flag"></i> Noticias Nacionales (8)</h2>
+                        <h2><i class="fa-solid fa-flag"></i> Colombia</h2>
                     </div>
 
                     <div class="news-grid-4">
@@ -1377,7 +1510,7 @@
                 <!-- SECCIÓN POLÍTICA -->
                 <section id="politica" style="margin-bottom: 28px;">
                     <div class="section-header">
-                        <h2><i class="fa-solid fa-landmark"></i> Política & Análisis (8)</h2>
+                        <h2><i class="fa-solid fa-landmark"></i> Política & Análisis</h2>
                     </div>
 
                     <div class="news-grid-4">
@@ -1392,10 +1525,10 @@
                     </div>
                 </section>
 
-                <!-- SECCIÓN DEPORTES INDEPENDIENTE -->
+                <!-- SECCIÓN DEPORTE -->
                 <section id="deportes" style="margin-bottom: 28px;">
                     <div class="section-header">
-                        <h2><i class="fa-solid fa-trophy"></i> Sección Deportes</h2>
+                        <h2><i class="fa-solid fa-trophy"></i> Deporte</h2>
                         <span style="font-size: 0.78rem; color: var(--red-main); font-weight: bold;">Fútbol & Polideportivo</span>
                     </div>
 
@@ -1463,10 +1596,10 @@
                     </div>
                 </section>
 
-                <!-- SECCIÓN ENTRETEINIMIENTO -->
+                <!-- SECCIÓN ENTRETENIMIENTO Y MÚSICA -->
                 <section id="entretenimiento" style="margin-bottom: 28px;">
                     <div class="section-header" style="border-bottom-color: var(--purple-accent);">
-                        <h2><i class="fa-solid fa-film" style="color: var(--purple-accent);"></i> Entretenimiento & Cultura</h2>
+                        <h2><i class="fa-solid fa-music" style="color: var(--purple-accent);"></i> Entretenimiento y Música</h2>
                         <span style="font-size: 0.78rem; color: var(--purple-accent); font-weight: bold;">Música, Cine & Farándula</span>
                     </div>
 
@@ -1602,7 +1735,7 @@
                     </div>
                 </section>
 
-                <!-- SECCIÓN DE PROGRAMAS (SHOWCASE Y LOGOS DE PROGRAMAS) -->
+                <!-- PARRILLA DE PROGRAMAS DE LA VIBRANTE -->
                 <section class="programs-logos-block">
                     <div class="section-header">
                         <h2><i class="fa-solid fa-tv"></i> Programas & Producciones LaVibrante</h2>
@@ -1700,7 +1833,7 @@
                     </div>
                 </section>
 
-                <!-- NUEVA SECCIÓN DE OPINIÓN CON FOTOS REDONDAS -->
+                <!-- SECCIÓN DE OPINIÓN -->
                 <section id="opinion" class="opinion-section">
                     <div class="section-header">
                         <h2><i class="fa-solid fa-pen-nib"></i> Opinión & Columnistas</h2>
@@ -1708,17 +1841,15 @@
                     </div>
 
                     <div class="opinion-grid-4">
-                        <!-- Columnista 1 -->
                         <a href="#" class="opinion-card">
                             <div class="opinion-avatar-container">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Dra. María Fernanda Gómez">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="María Fernanda Gómez">
                             </div>
                             <h4 class="opinion-author-name">María F. Gómez</h4>
                             <span class="opinion-role">Analista Económica</span>
                             <p class="opinion-title">“Retos de la competitividad regional y las oportunidades de desarrollo para el Caribe”</p>
                         </a>
 
-                        <!-- Columnista 2 -->
                         <a href="#" class="opinion-card">
                             <div class="opinion-avatar-container">
                                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Carlos Eduardo Morales">
@@ -1728,17 +1859,15 @@
                             <p class="opinion-title">“Democracia, gobernabilidad y los consensos indispensables para el país”</p>
                         </a>
 
-                        <!-- Columnista 3 -->
                         <a href="#" class="opinion-card">
                             <div class="opinion-avatar-container">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Dra. Patricia Reyes">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Patricia Reyes">
                             </div>
                             <h4 class="opinion-author-name">Patricia Reyes</h4>
                             <span class="opinion-role">Sostenibilidad & Ciudad</span>
                             <p class="opinion-title">“Transformación urbana inteligente: el futuro sostenible de nuestras ciudades”</p>
                         </a>
 
-                        <!-- Columnista 4 -->
                         <a href="#" class="opinion-card">
                             <div class="opinion-avatar-container">
                                 <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="Jorge Luis Mendoza">
@@ -1819,14 +1948,12 @@
                 <div class="footer-col">
                     <h4>Secciones</h4>
                     <ul>
-                        <li><a href="#destacadas">Destacadas</a></li>
-                        <li><a href="#regionales">Regionales</a></li>
-                        <li><a href="#nacionales">Nacionales</a></li>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#deportes">Deporte</a></li>
+                        <li><a href="#entretenimiento">Entretenimiento y Música</a></li>
+                        <li><a href="#eventos">Eventos</a></li>
+                        <li><a href="#nacionales">Colombia</a></li>
                         <li><a href="#politica">Política</a></li>
-                        <li><a href="#deportes">Deportes</a></li>
-                        <li><a href="#entretenimiento">Entretenimiento</a></li>
-                        <li><a href="#economia">Economía</a></li>
-                        <li><a href="#servicios-publicos">Servicios Públicos</a></li>
                         <li><a href="#opinion">Opinión</a></li>
                     </ul>
                 </div>
@@ -1851,9 +1978,37 @@
         </div>
     </footer>
 
+    <!-- SCRIPT DE INTERACCIÓN -->
     <script>
         document.getElementById('live-date').innerText = new Date().toLocaleDateString('es-ES', {
             weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'
+        });
+
+        // LÓGICA DEL MENÚ HAMBURGUESA DESPLEGABLE
+        const openSidebarBtn = document.getElementById('openSidebar');
+        const closeSidebarBtn = document.getElementById('closeSidebar');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function openSidebar() {
+            sidebarMenu.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebarMenu.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        openSidebarBtn.addEventListener('click', openSidebar);
+        closeSidebarBtn.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        // Cierra el panel al presionar una opción
+        document.querySelectorAll('.sidebar-links a').forEach(link => {
+            link.addEventListener('click', closeSidebar);
         });
     </script>
 </body>
