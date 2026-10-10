@@ -330,7 +330,141 @@
             font-weight: 700;
         }
 
-        /* 6. DISEÑO DE NOTICIAS MODERNO */
+        /* TOP 5 NOTICIAS DESTACADAS */
+        .top-news-container {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .main-hero-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--grey-border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .main-hero-card:hover { transform: translateY(-3px); }
+        .main-hero-card .img-container { height: 280px; }
+        .main-hero-card .card-body h3 { font-size: 1.25rem; line-height: 1.35; }
+
+        .sub-grid-2x2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .sub-hero-card {
+            background: var(--white);
+            border: 1px solid var(--grey-border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: transform 0.25s ease;
+        }
+
+        .sub-hero-card:hover { transform: translateY(-2px); }
+        .sub-hero-card .img-container { height: 110px; }
+        .sub-hero-card .card-body { padding: 10px; }
+        .sub-hero-card .card-body h3 { font-size: 0.82rem; line-height: 1.3; }
+
+        /* ESTILOS DE SECCIÓN REGIONAL: DESTACADA CON VIDEO + GRID (3 ARRIBA / 3 ABAJO + 1 VERTICAL DERECHA) */
+        .regional-featured-video-card {
+            background: var(--white);
+            border-radius: 10px;
+            border: 1px solid var(--grey-border);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1.2fr 1.3fr;
+            gap: 0;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+
+        .regional-featured-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .regional-featured-info h3 {
+            font-size: 1.2rem;
+            line-height: 1.35;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-top: 10px;
+            margin-bottom: 8px;
+        }
+
+        .regional-featured-info p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .regional-video-box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            min-height: 240px;
+            background: #000;
+        }
+
+        .regional-video-box iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* ESTRUCTURA DE GRID REGIONAL: 3X2 A LA IZQUIERDA Y 1 VERTICAL A LA DERECHA */
+        .regional-layout-grid {
+            display: grid;
+            grid-template-columns: 3fr 1.1fr;
+            gap: 14px;
+        }
+
+        .regional-3x2-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+
+        .regional-vertical-card {
+            background: var(--white);
+            border: 1px solid var(--grey-border);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.25s ease;
+        }
+
+        .regional-vertical-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--red-main);
+        }
+
+        .regional-vertical-card .img-container {
+            height: 200px;
+        }
+
+        /* 6. DISEÑO GENERAL DE NOTICIAS */
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -400,6 +534,9 @@
         }
 
         .card:hover .img-container img,
+        .main-hero-card:hover .img-container img,
+        .sub-hero-card:hover .img-container img,
+        .regional-vertical-card:hover .img-container img,
         .sports-mini-card:hover .img-container img,
         .sports-main-card:hover .img-container img {
             transform: scale(1.06);
@@ -434,42 +571,13 @@
             text-align: left;
         }
 
-        .card:hover .card-body h3 {
-            color: var(--red-main);
-        }
-
-        .card-body p {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-align: left;
-        }
+        .card:hover .card-body h3 { color: var(--red-main); }
 
         .news-grid-4 {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 16px;
             margin-bottom: 28px;
-        }
-
-        .regionals-layout {
-            display: grid;
-            grid-template-columns: 1.8fr 2fr;
-            gap: 16px;
-            margin-bottom: 28px;
-        }
-
-        .regional-main-card { grid-row: span 2; }
-        .regional-main-card .img-container { height: 230px; }
-
-        .regional-sub-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
         }
 
         /* SECCIÓN DEPORTES MODERNA */
@@ -540,27 +648,12 @@
             text-align: left;
         }
 
-        .sports-main-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.08);
-        }
+        .sports-main-card:hover { transform: translateY(-4px); box-shadow: 0 12px 20px rgba(0,0,0,0.08); }
+        .sports-main-card .img-container { height: 200px; }
+        .sports-main-card .card-body { padding: 16px; }
+        .sports-main-card h3 { font-size: 1.1rem; line-height: 1.35; margin-top: 6px; text-align: left; }
 
-        .sports-main-card .img-container {
-            height: 200px;
-        }
-
-        .sports-main-card .card-body {
-            padding: 16px;
-        }
-
-        .sports-main-card h3 {
-            font-size: 1.1rem;
-            line-height: 1.35;
-            margin-top: 6px;
-            text-align: left;
-        }
-
-        /* 7. STORIES ESTÁTICAS (6 HISTORIAS) */
+        /* STORIES ESTÁTICAS */
         .stories-section {
             background: var(--white);
             border: 1px solid var(--grey-border);
@@ -606,17 +699,8 @@
             background-color: #000;
         }
 
-        .story-card-item:hover {
-            transform: translateY(-4px);
-        }
-
-        .story-card-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-        }
+        .story-card-item:hover { transform: translateY(-4px); }
+        .story-card-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
         .story-badge-user {
             position: absolute;
@@ -647,13 +731,9 @@
             text-align: left;
         }
 
-        .story-caption-overlay h5 {
-            font-size: 0.72rem;
-            line-height: 1.2;
-            font-weight: 600;
-        }
+        .story-caption-overlay h5 { font-size: 0.72rem; line-height: 1.2; font-weight: 600; }
 
-        /* 8. PROGRAMAS ESPECIALES HORIZONTALES */
+        /* PROGRAMAS ESPECIALES HORIZONTALES */
         .special-block {
             background-color: var(--grey-dark);
             color: var(--white);
@@ -674,7 +754,7 @@
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* Relación 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             border-radius: 6px 6px 0 0;
@@ -735,7 +815,6 @@
             flex-shrink: 0;
         }
 
-        /* ESTILOS DE BANNERS PUBLICITARIOS 300x600 CON FRASES COMERCIALES */
         .banner-300x600 {
             width: 300px;
             height: 600px;
@@ -780,31 +859,10 @@
             margin-top: 10px;
         }
 
-        .banner-icon {
-            font-size: 3rem;
-            color: var(--yellow-accent);
-            margin: 15px 0;
-        }
-
-        .banner-phrase {
-            font-size: 1.15rem;
-            font-weight: 800;
-            line-height: 1.35;
-            color: var(--white);
-            text-transform: uppercase;
-            letter-spacing: -0.3px;
-        }
-
-        .banner-phrase span {
-            color: var(--yellow-accent);
-        }
-
-        .banner-subtext {
-            font-size: 0.82rem;
-            color: #bbb;
-            margin-top: 10px;
-            line-height: 1.4;
-        }
+        .banner-icon { font-size: 3rem; color: var(--yellow-accent); margin: 15px 0; }
+        .banner-phrase { font-size: 1.15rem; font-weight: 800; line-height: 1.35; color: var(--white); text-transform: uppercase; letter-spacing: -0.3px; }
+        .banner-phrase span { color: var(--yellow-accent); }
+        .banner-subtext { font-size: 0.82rem; color: #bbb; margin-top: 10px; line-height: 1.4; }
 
         .banner-cta-btn {
             background: linear-gradient(90deg, var(--red-main) 0%, var(--red-dark) 100%);
@@ -823,11 +881,7 @@
             box-shadow: 0 4px 12px rgba(227, 27, 35, 0.4);
         }
 
-        .banner-cta-btn:hover {
-            background: var(--yellow-accent);
-            color: var(--black-main);
-            transform: translateY(-2px);
-        }
+        .banner-cta-btn:hover { background: var(--yellow-accent); color: var(--black-main); transform: translateY(-2px); }
 
         .partners-grid {
             display: grid;
@@ -840,18 +894,8 @@
             border: 1px solid var(--grey-border);
         }
 
-        .partner-item {
-            text-align: center;
-            filter: grayscale(100%);
-            opacity: 0.7;
-            font-size: 0.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .partner-item:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
+        .partner-item { text-align: center; filter: grayscale(100%); opacity: 0.7; font-size: 0.8rem; transition: all 0.3s ease; }
+        .partner-item:hover { filter: grayscale(0%); opacity: 1; }
 
         /* FOOTER */
         footer {
@@ -863,33 +907,18 @@
             text-align: left;
         }
 
-        .footer-inner {
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1.5fr;
-            gap: 25px;
-            margin-bottom: 30px;
-        }
-
-        .footer-col h4 {
-            color: var(--red-main);
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-        }
-
+        .footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 25px; margin-bottom: 30px; }
+        .footer-col h4 { color: var(--red-main); font-size: 0.95rem; text-transform: uppercase; margin-bottom: 12px; }
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 6px; font-size: 0.82rem; color: #bbb; }
 
         @media (max-width: 1024px) {
+            .top-news-container { grid-template-columns: 1fr; }
+            .regional-featured-video-card { grid-template-columns: 1fr; }
+            .regional-layout-grid { grid-template-columns: 1fr; }
             .news-grid-4 { grid-template-columns: repeat(2, 1fr); }
             .economy-grid { grid-template-columns: repeat(2, 1fr); }
-            .regionals-layout { grid-template-columns: 1fr; }
             .sports-3-1-3-grid { grid-template-columns: 1fr; }
             .news-grid-3-compact { grid-template-columns: 1fr; }
             .stories-grid-static { grid-template-columns: repeat(3, 1fr); }
@@ -899,6 +928,8 @@
             .layout-grid { grid-template-columns: 1fr; }
             .cnn-nav-links { display: none; }
             .container { padding: 0 15px; }
+            .sub-grid-2x2 { grid-template-columns: 1fr; }
+            .regional-3x2-grid { grid-template-columns: 1fr; }
             .stories-grid-static { grid-template-columns: repeat(2, 1fr); }
             .banner-300x600 { width: 100%; max-width: 300px; }
         }
@@ -1008,78 +1039,192 @@
         <div class="layout-grid">
             <main>
 
-                <!-- SECCIÓN NOTICIAS REGIONALES -->
+                <!-- TOP 5 NOTICIAS PRINCIPALES DESTACADAS -->
+                <section id="destacadas" style="margin-bottom: 28px;">
+                    <div class="section-header">
+                        <h2><i class="fa-solid fa-star"></i> Top 5 Noticias Destacadas</h2>
+                        <span style="font-size: 0.78rem; color: var(--red-main); font-weight: bold;">Lo más relevante hoy</span>
+                    </div>
+
+                    <div class="top-news-container">
+                        <article class="main-hero-card">
+                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <div class="img-container">
+                                    <span class="badge-cat badge-floating" style="background:var(--red-main); font-size:0.75rem;">Gran Destacado</span>
+                                    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=1000&q=80" alt="Noticia Principal">
+                                </div>
+                                <div class="card-body">
+                                    <h3>Acuerdos multilaterales impulsan la reactivación económica y el empleo en toda la región</h3>
+                                    <p>Gobierno y sector privado presentan la hoja de ruta integral con inversiones multimillonarias para infraestructura, sostenibilidad y desarrollo social.</p>
+                                </div>
+                            </a>
+                        </article>
+
+                        <div class="sub-grid-2x2">
+                            <article class="sub-hero-card">
+                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating">Internacional</span>
+                                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=400&q=80" alt="Noticia 2">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>2. Avances en la cumbre climática global</h3>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="sub-hero-card">
+                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating">Tecnología</span>
+                                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="Noticia 3">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>3. Innovación digital acelera a las startups</h3>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="sub-hero-card">
+                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating">Salud</span>
+                                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=400&q=80" alt="Noticia 4">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>4. Nuevos centros médicos especializados</h3>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="sub-hero-card">
+                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating">Infraestructura</span>
+                                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80" alt="Noticia 5">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>5. Modernización de terminales aeroportuarios</h3>
+                                    </div>
+                                </a>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECCIÓN NOTICIAS REGIONALES (SIN CARRUSEL: 3 ARRIBA / 3 ABAJO + 1 VERTICAL DERECHA) -->
                 <section id="regionales" style="margin-bottom: 28px;">
                     <div class="section-header">
                         <h2><i class="fa-solid fa-map-location-dot"></i> Noticias Regionales</h2>
                         <span style="font-size: 0.78rem; color: var(--red-main); font-weight: bold;">Cobertura Caribe & Regiones</span>
                     </div>
 
-                    <div class="regionals-layout">
-                        <!-- Noticia Regional Principal (1) -->
-                        <article class="card regional-main-card">
-                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
-                                <div class="img-container">
-                                    <span class="badge-cat badge-floating">Barranquilla - Atlántico</span>
-                                    <img src="https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80" alt="Noticia Regional 1">
-                                </div>
-                                <div class="card-body">
-                                    <h3 style="font-size: 1.1rem;">Inversión histórica en canalización de arroyos y vías en los municipios del Atlántico</h3>
-                                    <p>Gobernación del Atlántico fortalece la conectividad rural, saneamiento ambiental e infraestructura comunitaria.</p>
-                                </div>
-                            </a>
-                        </article>
+                    <!-- NOTICIA DESTACADA: TEXTO A LA IZQUIERDA Y VIDEO DE YOUTUBE A LA DERECHA -->
+                    <div class="regional-featured-video-card">
+                        <div class="regional-featured-info">
+                            <span class="badge-cat" style="align-self: flex-start;">Barranquilla - Atlántico</span>
+                            <h3>Avanza la canalización histórica de arroyos y obras de saneamiento</h3>
+                            <p>Transformación urbana integral mejora la calidad de vida y movilidad en los municipios del Atlántico con una inversión histórica en infraestructura pública.</p>
+                        </div>
+                        <div class="regional-video-box">
+                            <iframe src="https://www.youtube.com/embed/D5o-gDcHVTE" title="Avanza la canalización del arroyo en Barranquilla" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
 
-                        <!-- Subgrid de 4 Noticias Regionales Secundarias -->
-                        <div class="regional-sub-grid">
+                    <!-- ESTRUCTURA PRINCIPAL DE NOTICIAS REGIONALES -->
+                    <div class="regional-layout-grid">
+                        
+                        <!-- BLOQUE IZQUIERDO: 6 NOTICIAS HORIZONTALES (3 ARRIBA Y 3 ABAJO) -->
+                        <div class="regional-3x2-grid">
+                            <!-- Fila Superior (3 Noticias) -->
                             <article class="card">
                                 <a href="#" style="display:flex; flex-direction:column; height:100%;">
-                                    <div class="img-container" style="height: 105px;">
+                                    <div class="img-container" style="height: 110px;">
                                         <span class="badge-cat badge-floating">Carnaval</span>
-                                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80" alt="Noticia Regional 2">
+                                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80" alt="Regional 1">
                                     </div>
                                     <div class="card-body" style="padding:10px;">
-                                        <h3 style="font-size:0.82rem;">Agenda cultural para el Carnaval de Barranquilla</h3>
+                                        <h3 style="font-size:0.82rem;">1. Agenda cultural del Carnaval de Barranquilla</h3>
                                     </div>
                                 </a>
                             </article>
 
                             <article class="card">
                                 <a href="#" style="display:flex; flex-direction:column; height:100%;">
-                                    <div class="img-container" style="height: 105px;">
+                                    <div class="img-container" style="height: 110px;">
                                         <span class="badge-cat badge-floating">Bogotá</span>
-                                        <img src="https://images.unsplash.com/photo-1583531172005-814191b8b6c0?auto=format&fit=crop&w=400&q=80" alt="Noticia Regional 3">
+                                        <img src="https://images.unsplash.com/photo-1583531172005-814191b8b6c0?auto=format&fit=crop&w=400&q=80" alt="Regional 2">
                                     </div>
                                     <div class="card-body" style="padding:10px;">
-                                        <h3 style="font-size:0.82rem;">Avances en las obras del Metro y movilidad</h3>
+                                        <h3 style="font-size:0.82rem;">2. Obras de expansión del Metro en la capital</h3>
                                     </div>
                                 </a>
                             </article>
 
                             <article class="card">
                                 <a href="#" style="display:flex; flex-direction:column; height:100%;">
-                                    <div class="img-container" style="height: 105px;">
+                                    <div class="img-container" style="height: 110px;">
                                         <span class="badge-cat badge-floating">Medellín</span>
-                                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=400&q=80" alt="Noticia Regional 4">
+                                        <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&fit=crop&w=400&q=80" alt="Regional 3">
                                     </div>
                                     <div class="card-body" style="padding:10px;">
-                                        <h3 style="font-size:0.82rem;">Distrito de Ciencia impulsa empleos digitales</h3>
+                                        <h3 style="font-size:0.82rem;">3. Distrito de Innovación genera nuevos empleos</h3>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <!-- Fila Inferior (3 Noticias) -->
+                            <article class="card">
+                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                    <div class="img-container" style="height: 110px;">
+                                        <span class="badge-cat badge-floating">Cartagena</span>
+                                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" alt="Regional 4">
+                                    </div>
+                                    <div class="card-body" style="padding:10px;">
+                                        <h3 style="font-size:0.82rem;">4. Foro internacional de turismo en la Heroica</h3>
                                     </div>
                                 </a>
                             </article>
 
                             <article class="card">
                                 <a href="#" style="display:flex; flex-direction:column; height:100%;">
-                                    <div class="img-container" style="height: 105px;">
-                                        <span class="badge-cat badge-floating">Generales</span>
-                                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=400&q=80" alt="Noticia Regional 5">
+                                    <div class="img-container" style="height: 110px;">
+                                        <span class="badge-cat badge-floating">Vías</span>
+                                        <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=400&q=80" alt="Regional 5">
                                     </div>
                                     <div class="card-body" style="padding:10px;">
-                                        <h3 style="font-size:0.82rem;">Foro de innovación turística en la Costa</h3>
+                                        <h3 style="font-size:0.82rem;">5. Proyectos viales avanzan en municipios</h3>
+                                    </div>
+                                </a>
+                            </article>
+
+                            <article class="card">
+                                <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                    <div class="img-container" style="height: 110px;">
+                                        <span class="badge-cat badge-floating">Economía</span>
+                                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80" alt="Regional 6">
+                                    </div>
+                                    <div class="card-body" style="padding:10px;">
+                                        <h3 style="font-size:0.82rem;">6. Encuentro gremial de emprendedores del Caribe</h3>
                                     </div>
                                 </a>
                             </article>
                         </div>
+
+                        <!-- BLOQUE DERECHO: 1 NOTICIA DESTACADA VERTICAL -->
+                        <article class="regional-vertical-card">
+                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <div class="img-container">
+                                    <span class="badge-cat badge-floating" style="background:var(--black-main);">Informe Especial</span>
+                                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80" alt="Regional Vertical">
+                                </div>
+                                <div class="card-body">
+                                    <h3 style="font-size:1rem; line-height:1.35; font-weight:800;">7. Plan maestro de renovación urbana y desarrollo sostenible en la Región Caribe</h3>
+                                    <p style="font-size:0.78rem; color:var(--text-muted); margin-top:8px;">Estrategias clave entre los departamentos para dinamizar el comercio local y la conectividad vial.</p>
+                                </div>
+                            </a>
+                        </article>
+
                     </div>
                 </section>
 
@@ -1127,33 +1272,23 @@
                     </div>
 
                     <div class="sports-3-1-3-grid">
-                        
-                        <!-- 3 NOTICIAS A LA IZQUIERDA -->
                         <div class="sports-col-side">
                             <a href="#" class="sports-mini-card">
-                                <div class="img-container">
-                                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=300&q=80" alt="Deportes 1">
-                                </div>
+                                <div class="img-container"><img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=300&q=80"></div>
                                 <div>
                                     <span class="badge-cat" style="font-size:0.58rem; padding:1px 4px; margin-bottom: 4px;">Liga Colombiana</span>
                                     <h4>1. Junior alista nómina para el clásico caribeño</h4>
                                 </div>
                             </a>
-
                             <a href="#" class="sports-mini-card">
-                                <div class="img-container">
-                                    <img src="https://images.unsplash.com/photo-1517649763962-0c6232662000?auto=format&fit=crop&w=300&q=80" alt="Deportes 2">
-                                </div>
+                                <div class="img-container"><img src="https://images.unsplash.com/photo-1517649763962-0c6232662000?auto=format&fit=crop&w=300&q=80"></div>
                                 <div>
                                     <span class="badge-cat" style="font-size:0.58rem; padding:1px 4px; margin-bottom: 4px;">Selección</span>
                                     <h4>2. Convocatoria para las eliminatorias</h4>
                                 </div>
                             </a>
-
                             <a href="#" class="sports-mini-card">
-                                <div class="img-container">
-                                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=300&q=80" alt="Deportes 3">
-                                </div>
+                                <div class="img-container"><img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=300&q=80"></div>
                                 <div>
                                     <span class="badge-cat" style="font-size:0.58rem; padding:1px 4px; margin-bottom: 4px;">Béisbol</span>
                                     <h4>3. Novena barranquillera lidera la serie</h4>
@@ -1161,12 +1296,11 @@
                             </a>
                         </div>
 
-                        <!-- 1 NOTICIA CENTRAL DESTACADA -->
                         <article class="sports-main-card">
                             <a href="#" style="display:flex; flex-direction:column; height:100%;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--red-main);">Destacado Deportivo</span>
-                                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80" alt="Deportes Central">
+                                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=800&q=80">
                                 </div>
                                 <div class="card-body">
                                     <h3>Gran victoria internacional en el torneo continental de campeones</h3>
@@ -1175,39 +1309,29 @@
                             </a>
                         </article>
 
-                        <!-- 3 NOTICIAS A LA DERECHA -->
                         <div class="sports-col-side">
                             <a href="#" class="sports-mini-card">
-                                <div class="img-container">
-                                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=300&q=80" alt="Deportes 4">
-                                </div>
+                                <div class="img-container"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=300&q=80"></div>
                                 <div>
                                     <span class="badge-cat" style="font-size:0.58rem; padding:1px 4px; margin-bottom: 4px;">Fútbol Europeo</span>
                                     <h4>4. Colombianos destacan en copas internacionales</h4>
                                 </div>
                             </a>
-
                             <a href="#" class="sports-mini-card">
-                                <div class="img-container">
-                                    <img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=300&q=80" alt="Deportes 5">
-                                </div>
+                                <div class="img-container"><img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=300&q=80"></div>
                                 <div>
                                     <span class="badge-cat" style="font-size:0.58rem; padding:1px 4px; margin-bottom: 4px;">Ciclismo</span>
                                     <h4>5. Escarabajos brillan en etapas de montaña</h4>
                                 </div>
                             </a>
-
                             <a href="#" class="sports-mini-card">
-                                <div class="img-container">
-                                    <img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&w=300&q=80" alt="Deportes 6">
-                                </div>
+                                <div class="img-container"><img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&w=300&q=80"></div>
                                 <div>
                                     <span class="badge-cat" style="font-size:0.58rem; padding:1px 4px; margin-bottom: 4px;">Polideportivo</span>
                                     <h4>6. Atletas ganan medallas en Juegos Nacionales</h4>
                                 </div>
                             </a>
                         </div>
-
                     </div>
                 </section>
 
@@ -1223,7 +1347,7 @@
                             <a href="#" style="display:flex; flex-direction:column; height:100%;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--purple-accent);">Música</span>
-                                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80" alt="Entretenimiento 1">
+                                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80">
                                 </div>
                                 <div class="card-body">
                                     <h3>Anuncian grandes festivales internacionales de música para fin de año</h3>
@@ -1235,7 +1359,7 @@
                             <a href="#" style="display:flex; flex-direction:column; height:100%;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--purple-accent);">Cine</span>
-                                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80" alt="Entretenimiento 2">
+                                    <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80">
                                 </div>
                                 <div class="card-body">
                                     <h3>Los estrenos más esperados que llegan esta semana a las salas de cine</h3>
@@ -1247,7 +1371,7 @@
                             <a href="#" style="display:flex; flex-direction:column; height:100%;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--purple-accent);">Cultura</span>
-                                    <img src="https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=400&q=80" alt="Entretenimiento 3">
+                                    <img src="https://images.unsplash.com/photo-1460723237483-7a6dc9d0b212?auto=format&fit=crop&w=400&q=80">
                                 </div>
                                 <div class="card-body">
                                     <h3>Exposición artística rinde homenaje a las tradiciones del Caribe</h3>
@@ -1259,7 +1383,7 @@
                             <a href="#" style="display:flex; flex-direction:column; height:100%;">
                                 <div class="img-container">
                                     <span class="badge-cat badge-floating" style="background:var(--purple-accent);">Celebridades</span>
-                                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80" alt="Entretenimiento 4">
+                                    <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80">
                                 </div>
                                 <div class="card-body">
                                     <h3>Tendencias en moda y los looks destacados de las alfombras rojas</h3>
@@ -1269,7 +1393,7 @@
                     </div>
                 </section>
 
-                <!-- STORIES ESTÁTICAS (6 HISTORIAS) -->
+                <!-- STORIES ESTÁTICAS -->
                 <section class="stories-section">
                     <div class="stories-header-box">
                         <div class="stories-title">
@@ -1281,32 +1405,32 @@
                     <div class="stories-grid-static">
                         <div class="story-card-item">
                             <div class="story-badge-user">@lavibrante</div>
-                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80" alt="Story 1">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>1. Moda y Tendencias</h5></div>
                         </div>
                         <div class="story-card-item">
                             <div class="story-badge-user">@lavibrante</div>
-                            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80" alt="Story 2">
+                            <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>2. Entrenamiento Junior</h5></div>
                         </div>
                         <div class="story-card-item">
                             <div class="story-badge-user">@lavibrante</div>
-                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80" alt="Story 3">
+                            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>3. Carnaval tras bambalinas</h5></div>
                         </div>
                         <div class="story-card-item">
                             <div class="story-badge-user">@lavibrante</div>
-                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80" alt="Story 4">
+                            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>4. Entrevista Especial</h5></div>
                         </div>
                         <div class="story-card-item">
                             <div class="story-badge-user">@lavibrante</div>
-                            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80" alt="Story 5">
+                            <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>5. El Jangueo nocturno</h5></div>
                         </div>
                         <div class="story-card-item">
                             <div class="story-badge-user">@lavibrante</div>
-                            <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=400&q=80" alt="Story 6">
+                            <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=400&q=80">
                             <div class="story-caption-overlay"><h5>6. Concierto en la Costa</h5></div>
                         </div>
                     </div>
@@ -1434,6 +1558,7 @@
                 <div class="footer-col">
                     <h4>Secciones</h4>
                     <ul>
+                        <li><a href="#destacadas">Destacadas</a></li>
                         <li><a href="#regionales">Regionales</a></li>
                         <li><a href="#nacionales">Nacionales</a></li>
                         <li><a href="#politica">Política</a></li>
