@@ -377,7 +377,7 @@
         .sub-hero-card .card-body { padding: 10px; }
         .sub-hero-card .card-body h3 { font-size: 0.82rem; line-height: 1.3; }
 
-        /* ESTILOS DE SECCIÓN REGIONAL: DESTACADA CON VIDEO + GRID (3 ARRIBA / 3 ABAJO + 1 VERTICAL DERECHA) */
+        /* ESTILOS DE SECCIÓN REGIONAL */
         .regional-featured-video-card {
             background: var(--white);
             border-radius: 10px;
@@ -430,7 +430,6 @@
             border: 0;
         }
 
-        /* ESTRUCTURA DE GRID REGIONAL: 3X2 A LA IZQUIERDA Y 1 VERTICAL A LA DERECHA */
         .regional-layout-grid {
             display: grid;
             grid-template-columns: 3fr 1.1fr;
@@ -464,7 +463,7 @@
             height: 200px;
         }
 
-        /* 6. DISEÑO GENERAL DE NOTICIAS */
+        /* GENERAL DE NOTICIAS */
         .section-header {
             display: flex;
             justify-content: space-between;
@@ -769,6 +768,153 @@
             border: 0;
         }
 
+        /* BLOQUE DE LOGOS DE PROGRAMAS DE TV Y FORMATOS */
+        .programs-logos-block {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 18px;
+            border: 1px solid var(--grey-border);
+            margin-bottom: 28px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+        }
+
+        .programs-grid-5 {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .program-logo-card {
+            background: #111;
+            border-radius: 8px;
+            padding: 14px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            border: 2px solid #222;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-logo-card:hover {
+            border-color: var(--red-main);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(227, 27, 35, 0.25);
+        }
+
+        .program-logo-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .program-logo-card h4 {
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.25;
+            letter-spacing: -0.2px;
+        }
+
+        .program-logo-card span {
+            font-size: 0.65rem;
+            color: var(--yellow-accent);
+            margin-top: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* NUEVA SECCIÓN DE OPINIÓN */
+        .opinion-section {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--grey-border);
+            border-top: 4px solid var(--black-main);
+            margin-bottom: 28px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+        }
+
+        .opinion-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .opinion-card {
+            background: var(--grey-light);
+            border: 1px solid var(--grey-border);
+            border-radius: 10px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .opinion-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--red-main);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+            background: var(--white);
+        }
+
+        .opinion-avatar-container {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 12px;
+            border: 3px solid var(--red-main);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+            flex-shrink: 0;
+        }
+
+        .opinion-avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .opinion-author-name {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--black-main);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: -0.2px;
+        }
+
+        .opinion-role {
+            font-size: 0.7rem;
+            color: var(--red-main);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .opinion-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            line-height: 1.35;
+            color: var(--text-dark);
+            font-style: italic;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .opinion-card:hover .opinion-title {
+            color: var(--red-main);
+        }
+
         /* BARRA LATERAL Y BANNERS PUBLICITARIOS 300x600 */
         .sidebar-widget {
             background-color: var(--white);
@@ -883,20 +1029,6 @@
 
         .banner-cta-btn:hover { background: var(--yellow-accent); color: var(--black-main); transform: translateY(-2px); }
 
-        .partners-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 12px;
-            align-items: center;
-            background: var(--white);
-            padding: 16px;
-            border-radius: 8px;
-            border: 1px solid var(--grey-border);
-        }
-
-        .partner-item { text-align: center; filter: grayscale(100%); opacity: 0.7; font-size: 0.8rem; transition: all 0.3s ease; }
-        .partner-item:hover { filter: grayscale(0%); opacity: 1; }
-
         /* FOOTER */
         footer {
             background-color: var(--black-main);
@@ -922,6 +1054,8 @@
             .sports-3-1-3-grid { grid-template-columns: 1fr; }
             .news-grid-3-compact { grid-template-columns: 1fr; }
             .stories-grid-static { grid-template-columns: repeat(3, 1fr); }
+            .programs-grid-5 { grid-template-columns: repeat(2, 1fr); }
+            .opinion-grid-4 { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (max-width: 820px) {
@@ -932,6 +1066,8 @@
             .regional-3x2-grid { grid-template-columns: 1fr; }
             .stories-grid-static { grid-template-columns: repeat(2, 1fr); }
             .banner-300x600 { width: 100%; max-width: 300px; }
+            .programs-grid-5 { grid-template-columns: 1fr; }
+            .opinion-grid-4 { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -945,7 +1081,6 @@
             </div>
             <div class="top-bar-links">
                 <a href="#edicion-digital"><i class="fa-solid fa-newspaper"></i> Edición Digital</a>
-                <a href="#aliados"><i class="fa-solid fa-handshake"></i> Aliados Comerciales</a>
                 <a href="#"><i class="fa-solid fa-envelope"></i> Contacto / Pauta</a>
             </div>
         </div>
@@ -969,6 +1104,7 @@
                 <li><a href="#">Style</a></li>
                 <li><a href="#">Travel</a></li>
                 <li><a href="#deportes">Sports</a></li>
+                <li><a href="#opinion">Opinion</a></li>
                 <li><a href="#">More <i class="fa-solid fa-chevron-down" style="font-size:0.65rem;"></i></a></li>
             </ul>
 
@@ -1112,14 +1248,13 @@
                     </div>
                 </section>
 
-                <!-- SECCIÓN NOTICIAS REGIONALES (SIN CARRUSEL: 3 ARRIBA / 3 ABAJO + 1 VERTICAL DERECHA) -->
+                <!-- SECCIÓN NOTICIAS REGIONALES -->
                 <section id="regionales" style="margin-bottom: 28px;">
                     <div class="section-header">
                         <h2><i class="fa-solid fa-map-location-dot"></i> Noticias Regionales</h2>
                         <span style="font-size: 0.78rem; color: var(--red-main); font-weight: bold;">Cobertura Caribe & Regiones</span>
                     </div>
 
-                    <!-- NOTICIA DESTACADA: TEXTO A LA IZQUIERDA Y VIDEO DE YOUTUBE A LA DERECHA -->
                     <div class="regional-featured-video-card">
                         <div class="regional-featured-info">
                             <span class="badge-cat" style="align-self: flex-start;">Barranquilla - Atlántico</span>
@@ -1131,12 +1266,8 @@
                         </div>
                     </div>
 
-                    <!-- ESTRUCTURA PRINCIPAL DE NOTICIAS REGIONALES -->
                     <div class="regional-layout-grid">
-                        
-                        <!-- BLOQUE IZQUIERDO: 6 NOTICIAS HORIZONTALES (3 ARRIBA Y 3 ABAJO) -->
                         <div class="regional-3x2-grid">
-                            <!-- Fila Superior (3 Noticias) -->
                             <article class="card">
                                 <a href="#" style="display:flex; flex-direction:column; height:100%;">
                                     <div class="img-container" style="height: 110px;">
@@ -1173,7 +1304,6 @@
                                 </a>
                             </article>
 
-                            <!-- Fila Inferior (3 Noticias) -->
                             <article class="card">
                                 <a href="#" style="display:flex; flex-direction:column; height:100%;">
                                     <div class="img-container" style="height: 110px;">
@@ -1211,7 +1341,6 @@
                             </article>
                         </div>
 
-                        <!-- BLOQUE DERECHO: 1 NOTICIA DESTACADA VERTICAL -->
                         <article class="regional-vertical-card">
                             <a href="#" style="display:flex; flex-direction:column; height:100%;">
                                 <div class="img-container">
@@ -1224,7 +1353,6 @@
                                 </div>
                             </a>
                         </article>
-
                     </div>
                 </section>
 
@@ -1474,18 +1602,151 @@
                     </div>
                 </section>
 
-                <!-- ALIADOS COMERCIALES -->
-                <section id="aliados" style="margin-bottom: 25px;">
+                <!-- SECCIÓN DE PROGRAMAS (SHOWCASE Y LOGOS DE PROGRAMAS) -->
+                <section class="programs-logos-block">
                     <div class="section-header">
-                        <h2><i class="fa-solid fa-handshake"></i> Aliados Comerciales</h2>
+                        <h2><i class="fa-solid fa-tv"></i> Programas & Producciones LaVibrante</h2>
+                        <span style="font-size:0.75rem; color:var(--red-main); font-weight:700;">Nuestra Parrilla</span>
                     </div>
-                    <div class="partners-grid">
-                        <div class="partner-item"><strong>ALIADO 1</strong></div>
-                        <div class="partner-item"><strong>ALIADO 2</strong></div>
-                        <div class="partner-item"><strong>ALIADO 3</strong></div>
-                        <div class="partner-item"><strong>ALIADO 4</strong></div>
-                        <div class="partner-item"><strong>ALIADO 5</strong></div>
-                        <div class="partner-item"><strong>ALIADO 6</strong></div>
+
+                    <div class="programs-grid-5">
+                        <div class="program-logo-card">
+                            <i class="fa-solid fa-newspaper program-logo-icon" style="color:var(--yellow-accent);"></i>
+                            <h4>Enfoque Informativo</h4>
+                            <span>Análisis & Noticias</span>
+                        </div>
+
+                        <div class="program-logo-card">
+                            <i class="fa-solid fa-radio program-logo-icon" style="color:#e056fd;"></i>
+                            <h4>El Jangueo</h4>
+                            <span>Cultura & Tendencias</span>
+                        </div>
+
+                        <div class="program-logo-card">
+                            <i class="fa-solid fa-comments program-logo-icon" style="color:#30336b;"></i>
+                            <h4>Diálogos con Alcides</h4>
+                            <span>Entrevistas Clave</span>
+                        </div>
+
+                        <div class="program-logo-card">
+                            <i class="fa-solid fa-mug-hot program-logo-icon" style="color:#f0932b;"></i>
+                            <h4>Un Café con Alejo</h4>
+                            <span>Opinión & Charla</span>
+                        </div>
+
+                        <div class="program-logo-card">
+                            <i class="fa-solid fa-bullhorn program-logo-icon" style="color:#eb4d4b;"></i>
+                            <h4>Entérate con Yuly Pau</h4>
+                            <span>Magazine & Novedades</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SECCIÓN DE NOTICIAS SERVICIOS PÚBLICOS (AIR-E Y TRIPLE A) -->
+                <section id="servicios-publicos" style="margin-bottom: 28px;">
+                    <div class="section-header">
+                        <h2><i class="fa-solid fa-bolt-lightning"></i> Actualidad de Servicios Públicos (Air-e & Triple A)</h2>
+                        <span style="font-size: 0.78rem; color: var(--blue-accent); font-weight: bold;">LaVibrante Informativo</span>
+                    </div>
+
+                    <div class="news-grid-4">
+                        <article class="card">
+                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <div class="img-container">
+                                    <span class="badge-cat badge-floating" style="background:var(--blue-accent);">Triple A</span>
+                                    <img src="https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=400&q=80" alt="Noticia Triple A 1">
+                                </div>
+                                <div class="card-body">
+                                    <h3>Triple A anuncia modernización en la red de acueducto del norte de Barranquilla</h3>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="card">
+                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <div class="img-container">
+                                    <span class="badge-cat badge-floating" style="background:#e67e22;">Air-e</span>
+                                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=400&q=80" alt="Noticia Air-e 1">
+                                </div>
+                                <div class="card-body">
+                                    <h3>Air-e fortalece la infraestructura eléctrica con nuevos circuitos en el Atlántico</h3>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="card">
+                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <div class="img-container">
+                                    <span class="badge-cat badge-floating" style="background:var(--blue-accent);">Triple A</span>
+                                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80" alt="Noticia Triple A 2">
+                                </div>
+                                <div class="card-body">
+                                    <h3>Avanzan planes de contingencia para garantizar el suministro de agua en temporada seca</h3>
+                                </div>
+                            </a>
+                        </article>
+
+                        <article class="card">
+                            <a href="#" style="display:flex; flex-direction:column; height:100%;">
+                                <div class="img-container">
+                                    <span class="badge-cat badge-floating" style="background:#e67e22;">Air-e</span>
+                                    <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&w=400&q=80" alt="Noticia Air-e 2">
+                                </div>
+                                <div class="card-body">
+                                    <h3>Jornadas de mantenimiento programado optimizarán la calidad del servicio energético</h3>
+                                </div>
+                            </a>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- NUEVA SECCIÓN DE OPINIÓN CON FOTOS REDONDAS -->
+                <section id="opinion" class="opinion-section">
+                    <div class="section-header">
+                        <h2><i class="fa-solid fa-pen-nib"></i> Opinión & Columnistas</h2>
+                        <span style="font-size: 0.78rem; color: var(--red-main); font-weight: bold;">Columnas de Hoy</span>
+                    </div>
+
+                    <div class="opinion-grid-4">
+                        <!-- Columnista 1 -->
+                        <a href="#" class="opinion-card">
+                            <div class="opinion-avatar-container">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" alt="Dra. María Fernanda Gómez">
+                            </div>
+                            <h4 class="opinion-author-name">María F. Gómez</h4>
+                            <span class="opinion-role">Analista Económica</span>
+                            <p class="opinion-title">“Retos de la competitividad regional y las oportunidades de desarrollo para el Caribe”</p>
+                        </a>
+
+                        <!-- Columnista 2 -->
+                        <a href="#" class="opinion-card">
+                            <div class="opinion-avatar-container">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80" alt="Carlos Eduardo Morales">
+                            </div>
+                            <h4 class="opinion-author-name">Carlos E. Morales</h4>
+                            <span class="opinion-role">Consultor Político</span>
+                            <p class="opinion-title">“Democracia, gobernabilidad y los consensos indispensables para el país”</p>
+                        </a>
+
+                        <!-- Columnista 3 -->
+                        <a href="#" class="opinion-card">
+                            <div class="opinion-avatar-container">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Dra. Patricia Reyes">
+                            </div>
+                            <h4 class="opinion-author-name">Patricia Reyes</h4>
+                            <span class="opinion-role">Sostenibilidad & Ciudad</span>
+                            <p class="opinion-title">“Transformación urbana inteligente: el futuro sostenible de nuestras ciudades”</p>
+                        </a>
+
+                        <!-- Columnista 4 -->
+                        <a href="#" class="opinion-card">
+                            <div class="opinion-avatar-container">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="Jorge Luis Mendoza">
+                            </div>
+                            <h4 class="opinion-author-name">Jorge L. Mendoza</h4>
+                            <span class="opinion-role">Periodista de Innovación</span>
+                            <p class="opinion-title">“La revolución digital e inteligencia artificial en la educación del Caribe”</p>
+                        </a>
                     </div>
                 </section>
 
@@ -1565,14 +1826,18 @@
                         <li><a href="#deportes">Deportes</a></li>
                         <li><a href="#entretenimiento">Entretenimiento</a></li>
                         <li><a href="#economia">Economía</a></li>
+                        <li><a href="#servicios-publicos">Servicios Públicos</a></li>
+                        <li><a href="#opinion">Opinión</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h4>Programas</h4>
                     <ul>
-                        <li><a href="#programas">Entrevista con Personajes</a></li>
-                        <li><a href="#programas">El Jangueo</a></li>
                         <li><a href="#programas">Enfoque Informativo</a></li>
+                        <li><a href="#programas">El Jangueo</a></li>
+                        <li><a href="#programas">Diálogos con Alcides</a></li>
+                        <li><a href="#programas">Un Café con Alejo</a></li>
+                        <li><a href="#programas">Entérate con Yuly Pau</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
