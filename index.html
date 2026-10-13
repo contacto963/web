@@ -877,7 +877,7 @@
         .oea-arrow-left { left: 4px; }
         .oea-arrow-right { right: 4px; }
 
-        /* SECCIÓN DEPORTE MODERNA */
+        /* SECCIÓN DEPORTE MODERNA MODIFICADA CON SLIDER VERTICAL A LA DERECHA */
         .sports-3-1-3-grid {
             display: grid;
             grid-template-columns: 1fr 1.3fr 1fr;
@@ -951,6 +951,39 @@
         .sports-main-card .img-container { height: 200px; }
         .sports-main-card .card-body { padding: 16px; }
         .sports-main-card h3 { font-size: 1.1rem; line-height: 1.35; margin-top: 6px; text-align: left; }
+
+        /* ESTILOS DE CÓDIGO CSS PARA EL MÓDULO SLIDER DESLIZANTE DE 7 NOTICIAS */
+        .sports-slider-vertical-box {
+            background: var(--white);
+            border: 1px solid var(--grey-border);
+            border-radius: 10px;
+            overflow: hidden;
+            height: 380px;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            border-top: 3px solid var(--red-main);
+        }
+
+        .sports-slider-vertical-box:hover .sports-slider-track {
+            animation-play-state: paused;
+        }
+
+        .sports-slider-track {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px;
+            animation: slideDownSports 22s linear infinite;
+        }
+
+        @keyframes slideDownSports {
+            0% {
+                transform: translateY(-50%);
+            }
+            100% {
+                transform: translateY(0%);
+            }
+        }
 
         /* STORIES ESTÁTICAS */
         .stories-section {
@@ -2006,19 +2039,17 @@
                     </div>
                 </section>
 
-                <!-- ===================================================================
-                     NUEVA SECCIÓN REQUERIDA: ESPECIAL DE BARRANQUILLA 2026 (CARRUSEL)
-                ==================================================================== -->
+                <!-- SECCIÓN MEMORIAS OEA BARRANQUILLA 2026 (CARRUSEL) -->
                 <section class="oea-memorias-section">
                     <div class="oea-container-grid">
                         <!-- LADO IZQUIERDO: MARCA DEL EVENTO -->
                         <div class="oea-brand-box">
-                            <h2>Especial de <span>Barranquilla 2026</span></h2>
+                            <h2>Memorias OEA <span>Barranquilla 2026</span></h2>
                             <div class="oea-logos-badge">
                                 <i class="fa-solid fa-earth-americas" style="font-size:2rem; color:var(--yellow-accent);"></i>
                                 <div class="oea-badge-text">
-                                    <strong>Todo el acontecimiento local</strong>
-                                    Colombia - Barranquilla | 2026
+                                    <strong>Americas Competitiveness Exchange</strong>
+                                    Colombia - Barranquilla | ACE 2026
                                 </div>
                             </div>
                         </div>
@@ -2133,7 +2164,7 @@
                     </div>
                 </section>
 
-                <!-- SECCIÓN DEPORTE -->
+                <!-- SECCIÓN DEPORTE (MODIFICADA SEGÚN LA SOLICITUD) -->
                 <section id="deportes" style="margin-bottom: 28px;">
                     <div class="section-header">
                         <h2><i class="fa-solid fa-trophy"></i> Deporte</h2>
@@ -2141,6 +2172,7 @@
                     </div>
 
                     <div class="sports-3-1-3-grid">
+                        <!-- LADO IZQUIERDO: 3 NOTICIAS (ARRIBA, MITAD Y ABAJO) -->
                         <div class="sports-col-side">
                             <div onclick="openArticleDetail('deportes', 0)" class="sports-mini-card">
                                 <div class="img-container"><img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=300&q=80"></div>
@@ -2156,8 +2188,16 @@
                                     <h4>2. Convocatoria para las eliminatorias</h4>
                                 </div>
                             </div>
+                            <div onclick="openArticleDetail('deportes', 2)" class="sports-mini-card">
+                                <div class="img-container"><img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=300&q=80"></div>
+                                <div>
+                                    <span class="badge-cat" style="font-size:0.58rem; padding:1px 4px; margin-bottom: 4px;">Béisbol</span>
+                                    <h4>3. Caimanes firman victoria en la novena entrada</h4>
+                                </div>
+                            </div>
                         </div>
 
+                        <!-- LADO CENTRAL: TARJETA DESTACADA -->
                         <article class="sports-main-card" onclick="openArticleDetail('deportes', 1)">
                             <div style="display:flex; flex-direction:column; height:100%;">
                                 <div class="img-container">
@@ -2171,19 +2211,109 @@
                             </div>
                         </article>
 
-                        <div class="sports-col-side">
-                            <div onclick="openArticleDetail('deportes', 3)" class="sports-mini-card">
-                                <div class="img-container"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=300&q=80"></div>
-                                <div>
-                                    <span class="badge-cat" style="font-size:0.58rem; padding:1px 4px; margin-bottom: 4px;">Fútbol Europeo</span>
-                                    <h4>4. Colombianos destacan en copas internacionales</h4>
+                        <!-- LADO DERECHO: MÓDULO CON ESTILOS CSS CON 7 NOTICIAS DESLIZÁNDOSE DE ARRIBA A ABAJO -->
+                        <div class="sports-slider-vertical-box">
+                            <div class="sports-slider-track">
+                                <!-- BLOQUE ORIGINAL DE 7 NOTICIAS -->
+                                <div onclick="openArticleDetail('deportes', 3)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Fútbol Europeo</span>
+                                        <h4>1. Colombianos destacan en copas</h4>
+                                    </div>
                                 </div>
-                            </div>
-                            <div onclick="openArticleDetail('deportes', 4)" class="sports-mini-card">
-                                <div class="img-container"><img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=300&q=80"></div>
-                                <div>
-                                    <span class="badge-cat" style="font-size:0.58rem; padding:1px 4px; margin-bottom: 4px;">Ciclismo</span>
-                                    <h4>5. Escarabajos brillan en etapas de montaña</h4>
+                                <div onclick="openArticleDetail('deportes', 4)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Ciclismo</span>
+                                        <h4>2. Escarabajos brillan en etapas</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 5)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Polideportivo</span>
+                                        <h4>3. Atletas caribeños ganan medallas</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 6)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Baloncesto</span>
+                                        <h4>4. Titanes avanzan a semifinales</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 7)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Tenis</span>
+                                        <h4>5. Raqueta nacional en cuartos de final</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 8)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Automovilismo</span>
+                                        <h4>6. Pilotos clasifican con buenos tiempos</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 9)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1517649763962-0c6232662000?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Femenino</span>
+                                        <h4>7. Selección Femenina entrena a tope</h4>
+                                    </div>
+                                </div>
+
+                                <!-- DUPLICADO DEL BLOQUE PARA GARANTIZAR CICLO INFINITO FLUIDO -->
+                                <div onclick="openArticleDetail('deportes', 3)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Fútbol Europeo</span>
+                                        <h4>1. Colombianos destacan en copas</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 4)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Ciclismo</span>
+                                        <h4>2. Escarabajos brillan en etapas</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 5)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1530541930197-ff16ac917b0e?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Polideportivo</span>
+                                        <h4>3. Atletas caribeños ganan medallas</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 6)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Baloncesto</span>
+                                        <h4>4. Titanes avanzan a semifinales</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 7)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Tenis</span>
+                                        <h4>5. Raqueta nacional en cuartos de final</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 8)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Automovilismo</span>
+                                        <h4>6. Pilotos clasifican con buenos tiempos</h4>
+                                    </div>
+                                </div>
+                                <div onclick="openArticleDetail('deportes', 9)" class="sports-mini-card">
+                                    <div class="img-container"><img src="https://images.unsplash.com/photo-1517649763962-0c6232662000?auto=format&fit=crop&w=300&q=80"></div>
+                                    <div>
+                                        <span class="badge-cat" style="font-size:0.55rem; padding:1px 4px; margin-bottom: 2px;">Femenino</span>
+                                        <h4>7. Selección Femenina entrena a tope</h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
