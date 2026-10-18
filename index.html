@@ -1129,7 +1129,7 @@
         .staff-socials a:hover { background: var(--red-main); color: var(--white); border-color: var(--red-main); }
 
         /* ================================================= */
-        /* 3. ESTILOS EXCLUSIVOS: PROGRAMAS HORIZONTALES       */
+        /* 3. ESTILOS EXCLUSIVOS: PROGRAMAS HORIZONTALES     */
         /* ================================================= */
         .programs-horizontal-list {
             display: flex;
@@ -1716,12 +1716,246 @@
             overflow: hidden;
         }
 
+        /* ================================================= */
+        /* NUEVA SECCIÓN: SÍGUENOS EN REDES (ESTILO IMAGEN)    */
+        /* ================================================= */
+        .follow-networks-section {
+            background-color: #0d0d0d;
+            color: var(--white);
+            padding: 60px 20px 50px 20px;
+            text-align: center;
+            border-top: 1px solid #222;
+        }
+
+        .follow-networks-container {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .follow-header-tag {
+            color: var(--red-main);
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .follow-networks-container h2 {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+
+        .follow-networks-container h2 span {
+            color: var(--red-main);
+        }
+
+        .follow-subtitle {
+            font-size: 0.95rem;
+            color: #aaa;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+            line-height: 1.4;
+        }
+
+        .follow-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-bottom: 50px;
+        }
+
+        .follow-card {
+            background: #181818;
+            border: 1px solid #282828;
+            border-radius: 12px;
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            transition: all 0.3s ease;
+            min-height: 220px;
+        }
+
+        .follow-card:hover {
+            transform: translateY(-5px);
+            border-color: #444;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .follow-card.youtube-accent {
+            border-color: rgba(227, 27, 35, 0.3);
+        }
+
+        .follow-card-top-icon {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .follow-card-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .follow-platform-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 14px;
+        }
+
+        .follow-card h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 2px;
+        }
+
+        .follow-card span {
+            font-size: 0.75rem;
+            color: #888;
+            margin-bottom: 12px;
+        }
+
+        .follow-card p {
+            font-size: 0.72rem;
+            color: #aaa;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .follow-btn {
+            background: transparent;
+            border: 1px solid #444;
+            color: var(--white);
+            font-size: 0.68rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            padding: 8px 12px;
+            border-radius: 20px;
+            width: 100%;
+            transition: all 0.2s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .follow-card:hover .follow-btn {
+            background: var(--white);
+            color: var(--black-main);
+            border-color: var(--white);
+        }
+
+        .follow-card.youtube-accent:hover .follow-btn {
+            background: var(--red-main);
+            color: var(--white);
+            border-color: var(--red-main);
+        }
+
+        .latest-posts-heading {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 24px;
+        }
+
+        .latest-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .post-preview-card {
+            background: #181818;
+            border: 1px solid #282828;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: border-color 0.2s;
+        }
+
+        .post-preview-card:hover {
+            border-color: #555;
+        }
+
+        .post-preview-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .post-preview-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .post-preview-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--red-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--white);
+        }
+
+        .post-preview-meta h4 {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .post-preview-meta span {
+            font-size: 0.68rem;
+            color: #777;
+        }
+
+        .post-preview-ext-icon {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .post-preview-content {
+            font-size: 0.82rem;
+            color: #ccc;
+            line-height: 1.4;
+        }
+
         /* FOOTER */
         footer {
             background-color: var(--black-main);
             color: var(--white);
             padding: 40px 0 20px;
-            margin-top: 40px;
+            margin-top: 0;
             border-top: 4px solid var(--red-main);
             text-align: left;
         }
@@ -1747,6 +1981,8 @@
             .staff-card-horizontal { flex-direction: column; text-align: center; }
             .staff-socials { justify-content: center; }
             .program-card-horizontal { grid-template-columns: 1fr; }
+            .follow-cards-grid { grid-template-columns: repeat(2, 1fr); }
+            .latest-posts-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 820px) {
@@ -1756,6 +1992,7 @@
             .regional-3x2-grid { grid-template-columns: 1fr; }
             .banner-300x600 { width: 100%; max-width: 300px; }
             .universal-artists-grid { grid-template-columns: 1fr; }
+            .follow-cards-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1906,7 +2143,7 @@
     </div>
 
     <!-- ================================================= -->
-    <!-- VISTA 1: PÁGINA PRINCIPAL (HOME)                    -->
+    <!-- VISTA 1: PÁGINA PRINCIPAL (HOME)                  -->
     <!-- ================================================= -->
     <div id="home-view" class="site-view active-view">
         <div class="container">
@@ -2348,7 +2585,7 @@
                         </div>
                     </section>
 
-                    <!-- PROGRAMAS OFICIALES DE LA VIBRANTE EN YOUTUBE -->
+                    <!-- PROGRAMAS DE LA VIBRANTE EN YOUTUBE -->
                     <section class="programs-video-section">
                         <div class="section-header" style="border-bottom: 2px solid var(--yellow-accent); margin-bottom: 16px;">
                             <h2 style="color: var(--white);">Programas Oficiales - LaVibrante TV</h2>
@@ -2480,7 +2717,7 @@
 
 
     <!-- ================================================= -->
-    <!-- VISTA 2: SUBPÁGINA DINÁMICA DE CATEGORÍAS           -->
+    <!-- VISTA 2: SUBPÁGINA DINÁMICA DE CATEGORÍAS          -->
     <!-- ================================================= -->
     <div id="category-subpage-view" class="site-view">
         <div class="container">
@@ -2924,6 +3161,132 @@
             </div>
         </div>
     </div>
+
+
+    <!-- ================================================= -->
+    <!-- NUEVA SECCIÓN: SÍGUENOS EN REDES (JUSTO ANTES DEL FOOTER) -->
+    <!-- ================================================= -->
+    <section class="follow-networks-section">
+        <div class="follow-networks-container">
+            <div class="follow-header-tag">Redes Sociales</div>
+            <h2>Síguenos en <span>Redes</span></h2>
+            <p class="follow-subtitle">Estamos en todas partes. Síguenos para no perderte ninguna novedad, sorteo o transmisión especial.</p>
+            
+            <div class="follow-cards-grid">
+                <!-- Facebook -->
+                <div class="follow-card">
+                    <div class="follow-card-top-icon">↗</div>
+                    <div class="follow-card-center">
+                        <div class="follow-platform-icon">f</div>
+                        <h3>Facebook</h3>
+                        <span>@lavibrantecom</span>
+                        <p>Noticias, eventos y transmisiones especiales</p>
+                    </div>
+                    <a href="https://facebook.com" target="_blank" class="follow-btn">Seguir en Facebook</a>
+                </div>
+
+                <!-- Instagram -->
+                <div class="follow-card">
+                    <div class="follow-card-top-icon">↗</div>
+                    <div class="follow-card-center">
+                        <div class="follow-platform-icon">📷</div>
+                        <h3>Instagram</h3>
+                        <span>@lavibrantecom</span>
+                        <p>Fotos, stories y contenido exclusivo</p>
+                    </div>
+                    <a href="https://instagram.com" target="_blank" class="follow-btn">Seguir en Instagram</a>
+                </div>
+
+                <!-- X / Twitter -->
+                <div class="follow-card">
+                    <div class="follow-card-top-icon">↗</div>
+                    <div class="follow-card-center">
+                        <div class="follow-platform-icon">𝕏</div>
+                        <h3>X / Twitter</h3>
+                        <span>@lavibrantecom</span>
+                        <p>Actualizaciones en tiempo real</p>
+                    </div>
+                    <a href="https://twitter.com" target="_blank" class="follow-btn">Seguir en X</a>
+                </div>
+
+                <!-- TikTok -->
+                <div class="follow-card">
+                    <div class="follow-card-top-icon">↗</div>
+                    <div class="follow-card-center">
+                        <div class="follow-platform-icon">🎵</div>
+                        <h3>TikTok</h3>
+                        <span>@lavibrantecom</span>
+                        <p>Videos cortos y momentos en vivo</p>
+                    </div>
+                    <a href="https://tiktok.com" target="_blank" class="follow-btn">Seguir en TikTok</a>
+                </div>
+
+                <!-- YouTube -->
+                <div class="follow-card youtube-accent">
+                    <div class="follow-card-top-icon">↗</div>
+                    <div class="follow-card-center">
+                        <div class="follow-platform-icon" style="background: var(--red-main);">▶</div>
+                        <h3>YouTube</h3>
+                        <span>@lavibrantecom</span>
+                        <p>Programas, entrevistas y en vivo</p>
+                    </div>
+                    <a href="https://youtube.com" target="_blank" class="follow-btn">Suscribirse en YouTube</a>
+                </div>
+            </div>
+
+            <!-- Últimas publicaciones -->
+            <div class="latest-posts-heading">Últimas Publicaciones</div>
+            <div class="latest-posts-grid">
+                <div class="post-preview-card">
+                    <div class="post-preview-header">
+                        <div class="post-preview-user">
+                            <div class="post-preview-avatar">f</div>
+                            <div class="post-preview-meta">
+                                <h4>LaVibrante.com</h4>
+                                <span>Hace 2 horas</span>
+                            </div>
+                        </div>
+                        <div class="post-preview-ext-icon">↗</div>
+                    </div>
+                    <div class="post-preview-content">
+                        🎵 ¡Nueva semana, nueva música! Toda la programación especial de éxitos caribeños y entrevistas ya está disponible. ¿Quién es #1? 👇 #LaVibrante #MusicaLatina
+                    </div>
+                </div>
+
+                <div class="post-preview-card">
+                    <div class="post-preview-header">
+                        <div class="post-preview-user">
+                            <div class="post-preview-avatar" style="background: #000;">𝕏</div>
+                            <div class="post-preview-meta">
+                                <h4>LaVibrante.com</h4>
+                                <span>Hace 5 horas</span>
+                            </div>
+                        </div>
+                        <div class="post-preview-ext-icon">↗</div>
+                    </div>
+                    <div class="post-preview-content">
+                        🔥 EN VIVO ahora mismo — sintoniza lavibrante.com y siente el ritmo de la mejor música latina 24/7 🎧 #LaVibranteCom #EnDirecto
+                    </div>
+                </div>
+
+                <div class="post-preview-card">
+                    <div class="post-preview-header">
+                        <div class="post-preview-user">
+                            <div class="post-preview-avatar" style="background: linear-gradient(45deg, #f09433, #dc2743);">📷</div>
+                            <div class="post-preview-meta">
+                                <h4>LaVibrante.com</h4>
+                                <span>Hace 1 día</span>
+                            </div>
+                        </div>
+                        <div class="post-preview-ext-icon">↗</div>
+                    </div>
+                    <div class="post-preview-content">
+                        📸 Nos vemos este fin de semana en el evento del año. ¡Boletos disponibles! Activa las notificaciones para no perderte nada 🔔 #Eventos #Caribe
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <!-- FOOTER -->
