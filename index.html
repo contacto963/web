@@ -645,6 +645,53 @@
             height: 200px;
         }
 
+        /* SECCIÓN DEPORTES (3 IZQUIERDA - 1 PRINCIPAL CENTRO - 3 DERECHA) */
+        .sports-3-column-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .sports-side-column {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sports-side-card {
+            background: var(--white);
+            border: 1px solid var(--grey-border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            transition: transform 0.25s ease;
+            cursor: pointer;
+        }
+        .sports-side-card:hover { transform: translateY(-2px); border-color: var(--red-main); }
+        .sports-side-card .img-container { height: 95px; }
+        .sports-side-card .card-body { padding: 10px; }
+        .sports-side-card .card-body h3 { font-size: 0.8rem; line-height: 1.3; }
+
+        .sports-center-hero-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--grey-border);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .sports-center-hero-card:hover { transform: translateY(-3px); border-color: var(--red-main); }
+        .sports-center-hero-card .img-container { height: 210px; }
+        .sports-center-hero-card .card-body { padding: 14px; }
+        .sports-center-hero-card .card-body h3 { font-size: 1.1rem; line-height: 1.35; }
+
         /* BARRANQUILLA 2026 */
         .oea-memorias-section {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -814,8 +861,8 @@
         .oea-arrow-left { left: 4px; }
         .oea-arrow-right { right: 4px; }
 
-        /* ESTILOS DE LA SUBPÁGINA EXCLUSIVA DE DEPORTE */
-        .sports-subpage-header {
+        /* ESTILOS DE LA SUBPÁGINA / CATEGORÍAS */
+        .category-subpage-header {
             background: var(--black-main);
             color: var(--white);
             padding: 24px;
@@ -844,13 +891,13 @@
             background: var(--red-dark);
         }
 
-        .sports-subpage-grid {
+        .category-subpage-grid {
             display: grid;
             grid-template-columns: 300px 1fr;
             gap: 24px;
         }
 
-        .sports-subpage-video-top {
+        .category-subpage-video-top {
             margin-bottom: 24px;
             background: var(--white);
             padding: 16px;
@@ -859,7 +906,7 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.03);
         }
 
-        .sports-categories-nav {
+        .category-chips-nav {
             display: flex;
             gap: 8px;
             overflow-x: auto;
@@ -869,7 +916,7 @@
             white-space: nowrap;
         }
 
-        .sports-cat-chip {
+        .cat-chip {
             background: var(--grey-light);
             border: 1px solid var(--grey-border);
             padding: 6px 14px;
@@ -881,19 +928,20 @@
             transition: all 0.2s ease;
         }
 
-        .sports-cat-chip:hover, .sports-cat-chip.active {
+        .cat-chip:hover, .cat-chip.active {
             background: var(--red-main);
             color: var(--white);
             border-color: var(--red-main);
         }
 
-        .sports-cards-vertical-list {
+        .category-cards-vertical-list {
             display: flex;
             flex-direction: column;
             gap: 16px;
+            margin-bottom: 30px;
         }
 
-        .sport-vertical-card-item {
+        .category-vertical-card-item {
             background: var(--white);
             border-radius: 10px;
             border: 1px solid var(--grey-border);
@@ -905,25 +953,25 @@
             cursor: pointer;
         }
 
-        .sport-vertical-card-item:hover {
+        .category-vertical-card-item:hover {
             transform: translateY(-3px);
             border-color: var(--red-main);
             box-shadow: 0 8px 20px rgba(227, 27, 35, 0.1);
         }
 
-        .sport-vertical-card-item .img-container {
+        .category-vertical-card-item .img-container {
             height: 100%;
             min-height: 160px;
             position: relative;
         }
 
-        .sport-vertical-card-item .img-container img {
+        .category-vertical-card-item .img-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .sport-vertical-card-content {
+        .category-vertical-card-content {
             padding: 16px;
             display: flex;
             flex-direction: column;
@@ -931,7 +979,7 @@
             text-align: left;
         }
 
-        .sport-meta-info {
+        .category-meta-info {
             display: flex;
             gap: 12px;
             font-size: 0.72rem;
@@ -940,12 +988,12 @@
             font-weight: 700;
         }
 
-        .sport-meta-info span.cat-tag {
+        .category-meta-info span.cat-tag {
             color: var(--red-main);
             text-transform: uppercase;
         }
 
-        .sport-vertical-card-content h3 {
+        .category-vertical-card-content h3 {
             font-size: 1.05rem;
             font-weight: 800;
             color: var(--text-dark);
@@ -954,11 +1002,11 @@
             transition: color 0.2s;
         }
 
-        .sport-vertical-card-item:hover .sport-vertical-card-content h3 {
+        .category-vertical-card-item:hover .category-vertical-card-content h3 {
             color: var(--red-main);
         }
 
-        .sport-vertical-card-content p {
+        .category-vertical-card-content p {
             font-size: 0.85rem;
             color: var(--text-muted);
             line-height: 1.4;
@@ -967,6 +1015,41 @@
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
+
+        /* SECCIÓN INFERIOR "LO MÁS VISTO" EN CATEGORÍAS */
+        .most-viewed-bottom-section {
+            background: var(--white);
+            border: 1px solid var(--grey-border);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            text-align: left;
+        }
+
+        .most-viewed-bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 14px;
+        }
+
+        .most-viewed-bottom-card {
+            background: var(--grey-light);
+            border: 1px solid var(--grey-border);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .most-viewed-bottom-card:hover {
+            border-color: var(--red-main);
+            transform: translateY(-2px);
+        }
+        .most-viewed-bottom-card .img-container { height: 110px; }
+        .most-viewed-bottom-card .card-body { padding: 10px; }
+        .most-viewed-bottom-card h4 { font-size: 0.8rem; line-height: 1.3; font-weight: 700; color: var(--text-dark); }
 
         /* BANNERS PUBLICITARIOS */
         .banner-300x600 {
@@ -1440,7 +1523,7 @@
 
         .card:hover .card-body h3 { color: var(--red-main); }
 
-        /* BARRA LATERAL (LO MÁS LEÍDO) */
+        /* BARRA LATERAL (LO MÁS LEÍDO CORREGIDO Y OPTIMIZADO) */
         .sidebar-widget {
             background-color: var(--white);
             border-radius: 10px;
@@ -1464,7 +1547,7 @@
         }
 
         .most-read-slider-box {
-            height: 420px;
+            height: 380px;
             overflow: hidden;
             position: relative;
         }
@@ -1477,7 +1560,7 @@
             display: flex;
             flex-direction: column;
             gap: 12px;
-            animation: slideMostRead 25s linear infinite;
+            animation: slideMostRead 20s linear infinite;
         }
 
         @keyframes slideMostRead {
@@ -1554,11 +1637,13 @@
             .cnn-nav-links { display: none; }
             .top-news-container { grid-template-columns: 1fr; }
             .regional-featured-video-card { grid-template-columns: 1fr; }
+            .sports-3-column-grid { grid-template-columns: 1fr; }
             .regional-layout-grid { grid-template-columns: 1fr; }
             .news-grid-4 { grid-template-columns: repeat(2, 1fr); }
             .economy-grid { grid-template-columns: repeat(2, 1fr); }
-            .sports-subpage-grid { grid-template-columns: 1fr; }
-            .sport-vertical-card-item { grid-template-columns: 1fr; }
+            .category-subpage-grid { grid-template-columns: 1fr; }
+            .category-vertical-card-item { grid-template-columns: 1fr; }
+            .most-viewed-bottom-grid { grid-template-columns: 1fr; }
             .universal-artists-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
@@ -1587,13 +1672,13 @@
             <div class="sidebar-section-title">Menú Principal</div>
             <ul class="sidebar-links">
                 <li><a onclick="switchView('home-view')">Inicio</a></li>
-                <li><a onclick="switchView('sports-subpage-view')">Deporte</a></li>
-                <li><a onclick="switchView('home-view')">Entretenimiento y Música</a></li>
-                <li><a onclick="switchView('home-view')">Eventos</a></li>
-                <li><a onclick="switchView('home-view')">Colombia</a></li>
-                <li><a onclick="switchView('home-view')">Mundo</a></li>
-                <li><a onclick="switchView('home-view')">Política</a></li>
-                <li><a onclick="switchView('home-view')">Noticias Generales</a></li>
+                <li><a onclick="openCategoryView('Deporte', 'Deporte')">Deporte</a></li>
+                <li><a onclick="openCategoryView('Entretenimiento', 'Entretenimiento y Música')">Entretenimiento y Música</a></li>
+                <li><a onclick="openCategoryView('Eventos', 'Eventos')">Eventos</a></li>
+                <li><a onclick="openCategoryView('Colombia', 'Colombia')">Colombia</a></li>
+                <li><a onclick="openCategoryView('Mundo', 'Mundo')">Mundo</a></li>
+                <li><a onclick="openCategoryView('Política', 'Política')">Política</a></li>
+                <li><a onclick="openCategoryView('Noticias Generales', 'Noticias Generales')">Noticias Generales</a></li>
                 <li><a href="<?php echo esc_url(home_url('/contactanos')); ?>">Contáctanos</a></li>
             </ul>
 
@@ -1636,71 +1721,58 @@
                     <a onclick="switchView('home-view')" class="active-link">Inicio</a>
                 </li>
                 <li class="cnn-nav-item">
-                    <a onclick="switchView('sports-subpage-view')">Deporte ▼</a>
+                    <a onclick="openCategoryView('Deporte', 'Deporte')">Deporte ▼</a>
                     <ul class="cnn-dropdown">
-                        <li><a onclick="filterSports('Fútbol Colombiano'); switchView('sports-subpage-view');">Fútbol Colombiano</a></li>
-                        <li><a onclick="filterSports('Junior FC'); switchView('sports-subpage-view');">Junior FC</a></li>
-                        <li><a onclick="filterSports('Selección Colombia'); switchView('sports-subpage-view');">Selección Colombia</a></li>
-                        <li><a onclick="filterSports('Béisbol & Caimanes'); switchView('sports-subpage-view');">Béisbol & Caimanes</a></li>
-                        <li><a onclick="filterSports('Ciclismo'); switchView('sports-subpage-view');">Ciclismo</a></li>
-                        <li><a onclick="filterSports('Fútbol Internacional'); switchView('sports-subpage-view');">Fútbol Internacional</a></li>
-                        <li><a onclick="filterSports('Baloncesto & Titanes'); switchView('sports-subpage-view');">Baloncesto & Titanes</a></li>
+                        <li><a onclick="openCategoryView('Deportes', 'Junior FC')">Junior FC</a></li>
+                        <li><a onclick="openCategoryView('Deportes', 'Selección Colombia')">Selección Colombia</a></li>
+                        <li><a onclick="openCategoryView('Deportes', 'Fútbol Colombiano')">Fútbol Colombiano</a></li>
+                        <li><a onclick="openCategoryView('Deportes', 'Béisbol & Caimanes')">Béisbol & Caimanes</a></li>
+                        <li><a onclick="openCategoryView('Deportes', 'Ciclismo')">Ciclismo</a></li>
                     </ul>
                 </li>
                 <li class="cnn-nav-item">
-                    <a onclick="switchView('home-view')">Entretenimiento ▼</a>
+                    <a onclick="openCategoryView('Entretenimiento', 'Entretenimiento')">Entretenimiento ▼</a>
                     <ul class="cnn-dropdown">
-                        <li><a onclick="switchView('home-view')">Música & Lanzamientos</a></li>
-                        <li><a onclick="switchView('home-view')">Farándula & Estrellas</a></li>
-                        <li><a onclick="switchView('home-view')">Cine y Series</a></li>
-                        <li><a onclick="switchView('home-view')">Conciertos & Shows</a></li>
+                        <li><a onclick="openCategoryView('Entretenimiento', 'Música & Lanzamientos')">Música & Lanzamientos</a></li>
+                        <li><a onclick="openCategoryView('Entretenimiento', 'Farándula & Estrellas')">Farándula & Estrellas</a></li>
+                        <li><a onclick="openCategoryView('Entretenimiento', 'Cine y Series')">Cine y Series</a></li>
                     </ul>
                 </li>
                 <li class="cnn-nav-item">
-                    <a onclick="switchView('home-view')">Eventos ▼</a>
+                    <a onclick="openCategoryView('Eventos', 'Eventos')">Eventos ▼</a>
                     <ul class="cnn-dropdown">
-                        <li><a onclick="switchView('home-view')">Carnaval de Barranquilla</a></li>
-                        <li><a onclick="switchView('home-view')">Ferias y Festivales</a></li>
-                        <li><a onclick="switchView('home-view')">Agenda Cultural</a></li>
-                        <li><a onclick="switchView('home-view')">Congresos & Expos</a></li>
+                        <li><a onclick="openCategoryView('Eventos', 'Carnaval de Barranquilla')">Carnaval de Barranquilla</a></li>
+                        <li><a onclick="openCategoryView('Eventos', 'Ferias y Festivales')">Ferias y Festivales</a></li>
                     </ul>
                 </li>
                 <li class="cnn-nav-item">
-                    <a onclick="switchView('home-view')">Colombia ▼</a>
+                    <a onclick="openCategoryView('Colombia', 'Colombia')">Colombia ▼</a>
                     <ul class="cnn-dropdown">
-                        <li><a onclick="switchView('home-view')">Barranquilla & Atlántico</a></li>
-                        <li><a onclick="switchView('home-view')">Región Caribe</a></li>
-                        <li><a onclick="switchView('home-view')">Bogotá & Cundinamarca</a></li>
-                        <li><a onclick="switchView('home-view')">Medellín & Antioquia</a></li>
-                        <li><a onclick="switchView('home-view')">Cali & Valle</a></li>
+                        <li><a onclick="openCategoryView('Colombia', 'Barranquilla & Atlántico')">Barranquilla & Atlántico</a></li>
+                        <li><a onclick="openCategoryView('Colombia', 'Región Caribe')">Región Caribe</a></li>
+                        <li><a onclick="openCategoryView('Colombia', 'Bogotá & Cundinamarca')">Bogotá & Cundinamarca</a></li>
                     </ul>
                 </li>
                 <li class="cnn-nav-item">
-                    <a onclick="switchView('home-view')">Mundo ▼</a>
+                    <a onclick="openCategoryView('Mundo', 'Mundo')">Mundo ▼</a>
                     <ul class="cnn-dropdown">
-                        <li><a onclick="switchView('home-view')">Latinoamérica</a></li>
-                        <li><a onclick="switchView('home-view')">Estados Unidos</a></li>
-                        <li><a onclick="switchView('home-view')">Europa</a></li>
-                        <li><a onclick="switchView('home-view')">Geopolítica Global</a></li>
+                        <li><a onclick="openCategoryView('Mundo', 'Latinoamérica')">Latinoamérica</a></li>
+                        <li><a onclick="openCategoryView('Mundo', 'Estados Unidos')">Estados Unidos</a></li>
                     </ul>
                 </li>
                 <li class="cnn-nav-item">
-                    <a onclick="switchView('home-view')">Política ▼</a>
+                    <a onclick="openCategoryView('Política', 'Política')">Política ▼</a>
                     <ul class="cnn-dropdown">
-                        <li><a onclick="switchView('home-view')">Congreso & Reformas</a></li>
-                        <li><a onclick="switchView('home-view')">Gobierno Nacional</a></li>
-                        <li><a onclick="switchView('home-view')">Alcaldías y Gobernaciones</a></li>
-                        <li><a onclick="switchView('home-view')">Análisis & Opinión</a></li>
+                        <li><a onclick="openCategoryView('Política', 'Congreso & Reformas')">Congreso & Reformas</a></li>
+                        <li><a onclick="openCategoryView('Política', 'Gobierno Nacional')">Gobierno Nacional</a></li>
                     </ul>
                 </li>
                 <li class="cnn-nav-item">
-                    <a onclick="switchView('home-view')">Más Noticias ▼</a>
+                    <a onclick="openCategoryView('Más Noticias', 'Más Noticias')">Más Noticias ▼</a>
                     <ul class="cnn-dropdown">
-                        <li><a onclick="switchView('home-view')">Economía & Finanzas</a></li>
-                        <li><a onclick="switchView('home-view')">Tecnología & IA</a></li>
-                        <li><a onclick="switchView('home-view')">Salud & Bienestar</a></li>
-                        <li><a onclick="switchView('home-view')">Medio Ambiente</a></li>
-                        <li><a onclick="switchView('home-view')">Sabor Vibrante (Gastronomía)</a></li>
+                        <li><a onclick="openCategoryView('Más Noticias', 'Economía & Finanzas')">Economía & Finanzas</a></li>
+                        <li><a onclick="openCategoryView('Más Noticias', 'Tecnología & IA')">Tecnología & IA</a></li>
+                        <li><a onclick="openCategoryView('Más Noticias', 'Salud & Bienestar')">Salud & Bienestar</a></li>
                     </ul>
                 </li>
             </ul>
@@ -1952,6 +2024,92 @@
                         </div>
                     </section>
 
+                    <!-- SECCIÓN DEPORTES (3 IZQUIERDA - 1 PRINCIPAL CENTRO - 3 DERECHA) -->
+                    <section id="deportes" style="margin-bottom: 28px;">
+                        <div class="section-header">
+                            <h2>Deportes</h2>
+                            <span style="font-size: 0.78rem; color: var(--red-main); font-weight: bold; cursor:pointer;" onclick="openCategoryView('Deporte', 'Deporte')">Ver más deportes →</span>
+                        </div>
+
+                        <div class="sports-3-column-grid">
+                            <!-- 3 Noticias Izquierda -->
+                            <div class="sports-side-column">
+                                <article class="sports-side-card" onclick="openCategoryView('Deporte', 'Fútbol Colombiano')">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating" style="font-size:0.6rem;">Fútbol</span>
+                                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=300&q=80" alt="Dep 1">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>1. Analizan detalles de la próxima jornada del rentado local</h3>
+                                    </div>
+                                </article>
+                                <article class="sports-side-card" onclick="openCategoryView('Deporte', 'Béisbol & Caimanes')">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating" style="font-size:0.6rem;">Boxeo</span>
+                                        <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=300&q=80" alt="Dep 2">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>2. Promesas del pugilismo caribeño por el título</h3>
+                                    </div>
+                                </article>
+                                <article class="sports-side-card" onclick="openCategoryView('Deporte', 'Baloncesto & Titanes')">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating" style="font-size:0.6rem;">Baloncesto</span>
+                                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=300&q=80" alt="Dep 3">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>3. Titanes listos para defender el campeonato</h3>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <!-- 1 Noticia Principal Centro -->
+                            <div>
+                                <article class="sports-center-hero-card" onclick="openCategoryView('Deporte', 'Junior FC')">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating" style="background:var(--red-main);">Junior FC</span>
+                                        <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=600&q=80" alt="Junior Principal">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>Gran victoria de Junior en el Metropolitano con un ambiente apoteósico e inolvidable</h3>
+                                        <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 6px;">El conjunto tiburón impuso condiciones en casa ante su hinchada con goles decisivos.</p>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <!-- 3 Noticias Derecha -->
+                            <div class="sports-side-column">
+                                <article class="sports-side-card" onclick="openCategoryView('Deporte', 'Selección Colombia')">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating" style="font-size:0.6rem;">Selección</span>
+                                        <img src="https://images.unsplash.com/photo-1517649763962-0c6232662000?auto=format&fit=crop&w=300&q=80" alt="Dep 4">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>4. Convocatoria oficial de la Selección Colombia</h3>
+                                    </div>
+                                </article>
+                                <article class="sports-side-card" onclick="openCategoryView('Deporte', 'Béisbol & Caimanes')">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating" style="font-size:0.6rem;">Béisbol</span>
+                                        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=300&q=80" alt="Dep 5">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>5. Caimanes aseguran triunfo en la novena entrada</h3>
+                                    </div>
+                                </article>
+                                <article class="sports-side-card" onclick="openCategoryView('Deporte', 'Ciclismo')">
+                                    <div class="img-container">
+                                        <span class="badge-cat badge-floating" style="font-size:0.6rem;">Ciclismo</span>
+                                        <img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=300&q=80" alt="Dep 6">
+                                    </div>
+                                    <div class="card-body">
+                                        <h3>6. Escarabajos brillan en la alta montaña europea</h3>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    </section>
+
                     <!-- BARRANQUILLA 2026 -->
                     <section class="oea-memorias-section">
                         <div class="oea-container-grid">
@@ -2172,6 +2330,35 @@
                                         <h4>Programación oficial de las fiestas del Caribe</h4>
                                     </div>
                                 </div>
+                                <div class="most-read-item">
+                                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=200&q=80" class="most-read-img" alt="Leido">
+                                    <div class="most-read-info">
+                                        <span>#3 Deportes</span>
+                                        <h4>Junior asegura su clasificación en el metropolitano</h4>
+                                    </div>
+                                </div>
+                                <!-- Duplicado para bucle fluido -->
+                                <div class="most-read-item">
+                                    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=200&q=80" class="most-read-img" alt="Leido">
+                                    <div class="most-read-info">
+                                        <span>#1 Colombia</span>
+                                        <h4>Nuevas rutas aéreas conectarán a Barranquilla</h4>
+                                    </div>
+                                </div>
+                                <div class="most-read-item">
+                                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=200&q=80" class="most-read-img" alt="Leido">
+                                    <div class="most-read-info">
+                                        <span>#2 Carnaval</span>
+                                        <h4>Programación oficial de las fiestas del Caribe</h4>
+                                    </div>
+                                </div>
+                                <div class="most-read-item">
+                                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=200&q=80" class="most-read-img" alt="Leido">
+                                    <div class="most-read-info">
+                                        <span>#3 Deportes</span>
+                                        <h4>Junior asegura su clasificación en el metropolitano</h4>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -2191,237 +2378,266 @@
 
 
     <!-- ================================================= -->
-    <!-- VISTA 2: SUBPÁGINA EXCLUSIVA DE DEPORTE            -->
+    <!-- VISTA 2: SUBPÁGINA DINÁMICA DE CATEGORÍAS (10 NOTICIAS + MÁS VISTAS ABAJO) -->
     <!-- ================================================= -->
-    <div id="sports-subpage-view" class="site-view">
+    <div id="category-subpage-view" class="site-view">
         <div class="container">
             
-            <!-- Cabecera de la Subpágina con botón de regreso -->
-            <div class="sports-subpage-header">
+            <!-- Cabecera de la Subpágina -->
+            <div class="category-subpage-header">
                 <div>
-                    <h1 style="font-size: 1.5rem; text-transform: uppercase; font-weight: 900;">Portal Exclusivo de Deporte</h1>
-                    <p style="font-size: 0.82rem; color: #aaa; margin-top: 4px;">Toda la actualidad, resultados y análisis del deporte local e internacional.</p>
+                    <h1 id="category-page-title" style="font-size: 1.5rem; text-transform: uppercase; font-weight: 900;">Portal de Categoría</h1>
+                    <p style="font-size: 0.82rem; color: #aaa; margin-top: 4px;">Información actualizada, reportajes y coberturas exclusivas.</p>
                 </div>
                 <a class="back-to-home-btn" onclick="switchView('home-view')">← Volver al Inicio</a>
             </div>
 
-            <div class="sports-subpage-grid">
+            <div class="category-subpage-grid">
                 
-                <!-- COLUMNA IZQUIERDA: PUBLICIDAD (300x600 y 300x250) -->
-                <aside class="sports-subpage-sidebar">
+                <!-- COLUMNA IZQUIERDA: PUBLICIDAD -->
+                <aside class="category-subpage-sidebar">
                     <div class="banner-300x600">
                         <span class="banner-tag">PUBLICIDAD 300x600</span>
                         <div class="banner-phrase">
-                            Impulsa tu marca en <span>Deportes</span> con impacto total.
+                            Impulsa tu marca en esta sección con impacto total.
                         </div>
-                        <p class="banner-subtext">Espacio reservado para campañas de alto rendimiento en la sección deportiva.</p>
+                        <p class="banner-subtext">Espacio reservado para campañas de alto rendimiento en el portal.</p>
                         <a href="<?php echo esc_url(home_url('/contactanos')); ?>" class="banner-cta-btn">Reservar Espacio</a>
                     </div>
 
                     <div class="banner-300x250">
-                        <span class="banner-tag" style="background:#2563eb;">PATROCINIO 300x250</span>
+                        <span class="banner-tag" style="background:#2563eb;">PATROCINIO</span>
                         <div class="banner-phrase" style="font-size: 0.85rem; margin-top:8px;">
-                            Conéctate con la pasión del fútbol y el Caribe.
+                            Conéctate con tu audiencia objetivo hoy mismo.
                         </div>
                         <a href="<?php echo esc_url(home_url('/contactanos')); ?>" class="banner-cta-btn" style="margin-top:12px;">Pautar Aquí</a>
                     </div>
                 </aside>
 
-                <!-- COLUMNA PRINCIPAL (DERECHA): VIDEO Y 10 NOTICIAS VERTICALES FILTRABLES -->
-                <main class="sports-subpage-main">
+                <!-- COLUMNA PRINCIPAL (DERECHA): VIDEO, 10 NOTICIAS Y LO MÁS VISTO ABAJO -->
+                <main class="category-subpage-main">
                     
-                    <!-- Video de YouTube al principio -->
-                    <div class="sports-subpage-video-top">
+                    <!-- Video Superior -->
+                    <div class="category-subpage-video-top">
                         <div class="section-header" style="border-bottom: 2px solid var(--red-main); margin-bottom: 12px;">
                             <h2>Transmisión y Video Destacado</h2>
                             <span class="badge-cat">En Vivo / Highlights</span>
                         </div>
                         <div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 8px; overflow: hidden;">
-                            <iframe src="https://www.youtube.com/embed/D5o-gDcHVTE" title="Deporte en Vivo" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
+                            <iframe src="https://www.youtube.com/embed/D5o-gDcHVTE" title="Video Destacado" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"></iframe>
                         </div>
                     </div>
 
-                    <!-- Navegación de categorías interactivas (Filtros de 1 clic) -->
-                    <div class="sports-categories-nav">
-                        <a class="sports-cat-chip active" onclick="filterSports('Todas')">Todas las Noticias</a>
-                        <a class="sports-cat-chip" onclick="filterSports('Junior FC')">Junior FC</a>
-                        <a class="sports-cat-chip" onclick="filterSports('Selección Colombia')">Selección Colombia</a>
-                        <a class="sports-cat-chip" onclick="filterSports('Fútbol Colombiano')">Fútbol Colombiano</a>
-                        <a class="sports-cat-chip" onclick="filterSports('Béisbol & Caimanes')">Béisbol & Caimanes</a>
-                        <a class="sports-cat-chip" onclick="filterSports('Ciclismo')">Ciclismo</a>
-                        <a class="sports-cat-chip" onclick="filterSports('Baloncesto & Titanes')">Baloncesto & Titanes</a>
-                        <a class="sports-cat-chip" onclick="filterSports('Fútbol Internacional')">Fútbol Internacional</a>
+                    <!-- Navegación por Chips de Categoría -->
+                    <div class="category-chips-nav" id="categoryChipsNav">
+                        <a class="cat-chip active" onclick="filterCategoryArticles('General')">Todas</a>
+                        <a class="cat-chip" onclick="filterCategoryArticles('Subcat 1')">Destacados</a>
+                        <a class="cat-chip" onclick="filterCategoryArticles('Subcat 2')">Entrevistas</a>
+                        <a class="cat-chip" onclick="filterCategoryArticles('Subcat 3')">Informes</a>
                     </div>
 
-                    <!-- Lista de 10 Noticias Deportivas en Tarjetas Verticales -->
+                    <!-- Título dinámico para las 10 noticias -->
                     <div class="section-header" style="border-bottom: 2px solid var(--red-main); margin-bottom: 16px;">
-                        <h2 id="sports-section-title">Todas las Noticias Deportivas (10)</h2>
+                        <h2 id="category-articles-title">Noticias de la Categoría (10)</h2>
                         <span style="font-size: 0.78rem; color: var(--red-main); font-weight: bold;">Actualizado Hoy</span>
                     </div>
 
-                    <div class="sports-cards-vertical-list" id="sportsCardsContainer">
-                        
+                    <!-- Listado exacto de 10 noticias -->
+                    <div class="category-cards-vertical-list" id="categoryCardsContainer">
                         <!-- Noticia 1 -->
-                        <article class="sport-vertical-card-item" data-category="Junior FC">
+                        <article class="category-vertical-card-item">
                             <div class="img-container">
-                                <span class="badge-cat badge-floating">Junior FC</span>
-                                <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=500&q=80" alt="Junior">
+                                <span class="badge-cat badge-floating">Principal</span>
+                                <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=500&q=80" alt="Noticia 1">
                             </div>
-                            <div class="sport-vertical-card-content">
-                                <div class="sport-meta-info">
-                                    <span class="cat-tag">Junior FC</span>
+                            <div class="category-vertical-card-content">
+                                <div class="category-meta-info">
+                                    <span class="cat-tag">Actualidad</span>
                                     <span>• 18 de Octubre, 2026</span>
                                 </div>
-                                <h3>Gran victoria de Junior en el Metropolitano con un ambiente apoteósico</h3>
-                                <p>El conjunto tiburón impuso condiciones en casa ante su hinchada con goles decisivos en el segundo tiempo que aseguran el liderato parcial del torneo.</p>
+                                <h3>Gran despliegue informativo y novedades clave para la región y el país</h3>
+                                <p>Análisis profundo sobre los acontecimientos recientes que marcan la pauta en la agenda informativa y el desarrollo socioeconómico.</p>
                             </div>
                         </article>
 
                         <!-- Noticia 2 -->
-                        <article class="sport-vertical-card-item" data-category="Selección Colombia">
+                        <article class="category-vertical-card-item">
                             <div class="img-container">
-                                <span class="badge-cat badge-floating">Selección</span>
-                                <img src="https://images.unsplash.com/photo-1517649763962-0c6232662000?auto=format&fit=crop&w=500&q=80" alt="Selección">
+                                <span class="badge-cat badge-floating">Informe</span>
+                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=500&q=80" alt="Noticia 2">
                             </div>
-                            <div class="sport-vertical-card-content">
-                                <div class="sport-meta-info">
-                                    <span class="cat-tag">Selección Colombia</span>
-                                    <span>• 17 de Octubre, 2026</span>
+                            <div class="category-vertical-card-content">
+                                <div class="category-meta-info">
+                                    <span class="cat-tag">Especiales</span>
+                                    <span>• 18 de Octubre, 2026</span>
                                 </div>
-                                <h3>Convocatoria oficial de la Selección Colombia para la próxima fecha de eliminatorias</h3>
-                                <p>El cuerpo técnico reveló la lista de jugadores convocados que concentrarán en Barranquilla para encarar los duelos cruciales del certamen continental.</p>
+                                <h3>Estrategias de innovación y transformación digital en marcha</h3>
+                                <p>Expertos discuten las nuevas oportunidades para optimizar procesos y ampliar la competitividad en los diferentes sectores productivos.</p>
                             </div>
                         </article>
 
                         <!-- Noticia 3 -->
-                        <article class="sport-vertical-card-item" data-category="Béisbol & Caimanes">
+                        <article class="category-vertical-card-item">
                             <div class="img-container">
-                                <span class="badge-cat badge-floating">Béisbol</span>
-                                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=500&q=80" alt="Béisbol">
+                                <span class="badge-cat badge-floating">Entrevista</span>
+                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" alt="Noticia 3">
                             </div>
-                            <div class="sport-vertical-card-content">
-                                <div class="sport-meta-info">
-                                    <span class="cat-tag">Béisbol & Caimanes</span>
+                            <div class="category-vertical-card-content">
+                                <div class="category-meta-info">
+                                    <span class="cat-tag">Liderazgo</span>
                                     <span>• 17 de Octubre, 2026</span>
                                 </div>
-                                <h3>Caimanes de Barranquilla aseguran triunfo agónico en la novena entrada</h3>
-                                <p>Con un batazo decisivo que rompió el empate, la novena barranquillera se impuso en el diamante y consolida su excelente momento en la liga profesional.</p>
+                                <h3>Líderes gremiales presentan balance de gestión y metas cumplidas</h3>
+                                <p>Encuentro clave donde se evaluaron los indicadores de crecimiento y las proyecciones financieras para el cierre del presente periodo.</p>
                             </div>
                         </article>
 
                         <!-- Noticia 4 -->
-                        <article class="sport-vertical-card-item" data-category="Ciclismo">
+                        <article class="category-vertical-card-item">
                             <div class="img-container">
-                                <span class="badge-cat badge-floating">Ciclismo</span>
-                                <img src="https://images.unsplash.com/photo-1519766304817-4f37bda74a29?auto=format&fit=crop&w=500&q=80" alt="Ciclismo">
+                                <span class="badge-cat badge-floating">Tendencia</span>
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=500&q=80" alt="Noticia 4">
                             </div>
-                            <div class="sport-vertical-card-content">
-                                <div class="sport-meta-info">
-                                    <span class="cat-tag">Ciclismo</span>
-                                    <span>• 16 de Octubre, 2026</span>
+                            <div class="category-vertical-card-content">
+                                <div class="category-meta-info">
+                                    <span class="cat-tag">Sociedad</span>
+                                    <span>• 17 de Octubre, 2026</span>
                                 </div>
-                                <h3>Escarabajos colombianos brillan en la alta montaña europea</h3>
-                                <p>Los pedalistas nacionales protagonizaron una escapada memorable en la etapa reina, demostrando su jerarquía y fortaleza en los puertos de categoría especial.</p>
+                                <h3>Iniciativas comunitarias que transforman el entorno urbano</h3>
+                                <p>Programas de participación ciudadana logran avances significativos en el mejoramiento de espacios públicos y bienestar social.</p>
                             </div>
                         </article>
 
                         <!-- Noticia 5 -->
-                        <article class="sport-vertical-card-item" data-category="Baloncesto & Titanes">
+                        <article class="category-vertical-card-item">
                             <div class="img-container">
-                                <span class="badge-cat badge-floating">Baloncesto</span>
-                                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=500&q=80" alt="Baloncesto">
+                                <span class="badge-cat badge-floating">Análisis</span>
+                                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=500&q=80" alt="Noticia 5">
                             </div>
-                            <div class="sport-vertical-card-content">
-                                <div class="sport-meta-info">
-                                    <span class="cat-tag">Baloncesto & Titanes</span>
+                            <div class="category-vertical-card-content">
+                                <div class="category-meta-info">
+                                    <span class="cat-tag">Infraestructura</span>
                                     <span>• 16 de Octubre, 2026</span>
                                 </div>
-                                <h3>Titanes de Barranquilla van por un nuevo título en el baloncesto profesional</h3>
-                                <p>El quinteto pentacampeón ajusta su estrategia táctica y quinteto titular de cara a la gran final del campeonato de la pelota naranja en Colombia.</p>
+                                <h3>Obras viales de gran envergadura registran alto porcentaje de ejecución</h3>
+                                <p>Los proyectos de conectividad vial mejoran de forma notable los tiempos de desplazamiento y dinamizan el comercio interregional.</p>
                             </div>
                         </article>
 
                         <!-- Noticia 6 -->
-                        <article class="sport-vertical-card-item" data-category="Fútbol Internacional">
+                        <article class="category-vertical-card-item">
                             <div class="img-container">
-                                <span class="badge-cat badge-floating">Internacional</span>
-                                <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=500&q=80" alt="Europa">
+                                <span class="badge-cat badge-floating">Cultura</span>
+                                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=500&q=80" alt="Noticia 6">
                             </div>
-                            <div class="sport-vertical-card-content">
-                                <div class="sport-meta-info">
-                                    <span class="cat-tag">Fútbol Internacional</span>
-                                    <span>• 15 de Octubre, 2026</span>
+                            <div class="category-vertical-card-content">
+                                <div class="category-meta-info">
+                                    <span class="cat-tag">Cultura</span>
+                                    <span>• 16 de Octubre, 2026</span>
                                 </div>
-                                <h3>Rendimiento destacado de los futbolistas cafeteros en ligas del viejo continente</h3>
-                                <p>Goles, asistencias y actuaciones sobresalientes de los embajadores tricolores en las competiciones de clubes más importantes de Europa este fin de semana.</p>
+                                <h3>Agenda cultural y artística atrae a visitantes de todo el continente</h3>
+                                <p>Muestras folclóricas, festivales y exposiciones consolidan la oferta turística y cultural de la región caribeña.</p>
                             </div>
                         </article>
 
                         <!-- Noticia 7 -->
-                        <article class="sport-vertical-card-item" data-category="Fútbol Colombiano">
+                        <article class="category-vertical-card-item">
                             <div class="img-container">
-                                <span class="badge-cat badge-floating">Liga Local</span>
-                                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=500&q=80" alt="Liga">
+                                <span class="badge-cat badge-floating">Economía</span>
+                                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=500&q=80" alt="Noticia 7">
                             </div>
-                            <div class="sport-vertical-card-content">
-                                <div class="sport-meta-info">
-                                    <span class="cat-tag">Fútbol Colombiano</span>
+                            <div class="category-vertical-card-content">
+                                <div class="category-meta-info">
+                                    <span class="cat-tag">Finanzas</span>
                                     <span>• 15 de Octubre, 2026</span>
                                 </div>
-                                <h3>Análisis de la tabla de posiciones y clasificados del rentado nacional</h3>
-                                <p>Revisión detallada de los equipos que pelean punto a punto por asegurar su cupo a los cuadrangulares semifinales del torneo de primera división.</p>
+                                <h3>Mercados bursátiles y su comportamiento ante las nuevas tasas</h3>
+                                <p>Inversionistas analizan las fluctuaciones recientes y evalúan las oportunidades de rentabilidad en el corto y mediano plazo.</p>
                             </div>
                         </article>
 
                         <!-- Noticia 8 -->
-                        <article class="sport-vertical-card-item" data-category="Béisbol & Caimanes">
+                        <article class="category-vertical-card-item">
                             <div class="img-container">
-                                <span class="badge-cat badge-floating">Boxeo</span>
-                                <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=500&q=80" alt="Boxeo">
+                                <span class="badge-cat badge-floating">Tecnología</span>
+                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80" alt="Noticia 8">
                             </div>
-                            <div class="sport-vertical-card-content">
-                                <div class="sport-meta-info">
-                                    <span class="cat-tag">Béisbol & Caimanes</span>
-                                    <span>• 14 de Octubre, 2026</span>
+                            <div class="category-vertical-card-content">
+                                <div class="category-meta-info">
+                                    <span class="cat-tag">Innovación</span>
+                                    <span>• 15 de Octubre, 2026</span>
                                 </div>
-                                <h3>Nuevas promesas del pugilismo caribeño conquistan cinturones internacionales</h3>
-                                <p>Jóvenes talentos formados en los gimnasios de la región Atlántica se coronan en carteleras internacionales augurando una época dorada para el boxeo.</p>
+                                <h3>Nuevas plataformas tecnológicas facilitan servicios ciudadanos</h3>
+                                <p>La digitalización de trámites optimiza la gestión institucional y acerca la administración pública a los habitantes.</p>
                             </div>
                         </article>
 
                         <!-- Noticia 9 -->
-                        <article class="sport-vertical-card-item" data-category="Ciclismo">
+                        <article class="category-vertical-card-item">
                             <div class="img-container">
-                                <span class="badge-cat badge-floating">Atletismo</span>
-                                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=500&q=80" alt="Atletismo">
+                                <span class="badge-cat badge-floating">Salud</span>
+                                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=500&q=80" alt="Noticia 9">
                             </div>
-                            <div class="sport-vertical-card-content">
-                                <div class="sport-meta-info">
-                                    <span class="cat-tag">Ciclismo</span>
+                            <div class="category-vertical-card-content">
+                                <div class="category-meta-info">
+                                    <span class="cat-tag">Bienestar</span>
                                     <span>• 14 de Octubre, 2026</span>
                                 </div>
-                                <h3>Atletas del Atlántico listos para la gran maratón internacional de la costa</h3>
-                                <p>Cientos de fondistas nacionales e internacionales afinan su preparación física para recorrer los circuitos urbanos trazados frente al Mar Caribe.</p>
+                                <h3>Jornadas de salud preventiva benefician a miles de familias</h3>
+                                <p>Programas de atención médica integral recorren los barrios con servicios gratuitos de diagnóstico y medicina preventiva.</p>
                             </div>
                         </article>
 
                         <!-- Noticia 10 -->
-                        <article class="sport-vertical-card-item" data-category="Fútbol Colombiano">
+                        <article class="category-vertical-card-item">
                             <div class="img-container">
-                                <span class="badge-cat badge-floating">Motor</span>
-                                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=500&q=80" alt="Motor">
+                                <span class="badge-cat badge-floating">Turismo</span>
+                                <img src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=500&q=80" alt="Noticia 10">
                             </div>
-                            <div class="sport-vertical-card-content">
-                                <div class="sport-meta-info">
-                                    <span class="cat-tag">Fútbol Colombiano</span>
+                            <div class="category-vertical-card-content">
+                                <div class="category-meta-info">
+                                    <span class="cat-tag">Turismo</span>
                                     <span>• 13 de Octubre, 2026</span>
                                 </div>
-                                <h3>Emoción y velocidad en el campeonato nacional de automovilismo</h3>
-                                <p>Adelantamientos al límite y máxima adrenalina se vivieron en el autódromo local durante las válidas de velocidad con pilotos de todo el país.</p>
+                                <h3>Flujo de visitantes rompe récords durante esta temporada vacacional</h3>
+                                <p>Hoteles, restaurantes y operadores turísticos reportan alta ocupación impulsada por una excelente oferta recreativa y cultural.</p>
                             </div>
                         </article>
-
                     </div>
+
+                    <!-- SECCIÓN INFERIOR: LO MÁS VISTO -->
+                    <section class="most-viewed-bottom-section">
+                        <div class="section-header" style="border-bottom: 2px solid var(--red-main); margin-bottom: 14px;">
+                            <h2>Lo Más Visto</h2>
+                            <span style="font-size: 0.75rem; color: var(--red-main); font-weight: bold;">Tendencias en la sección</span>
+                        </div>
+                        <div class="most-viewed-bottom-grid">
+                            <div class="most-viewed-bottom-card" onclick="switchView('home-view')">
+                                <div class="img-container">
+                                    <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=300&q=80" alt="Visto 1" style="width:100%; height:100%; object-fit:cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h4>1. Impacto económico de los nuevos acuerdos comerciales</h4>
+                                </div>
+                            </div>
+                            <div class="most-viewed-bottom-card" onclick="switchView('home-view')">
+                                <div class="img-container">
+                                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=300&q=80" alt="Visto 2" style="width:100%; height:100%; object-fit:cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h4>2. Preparativos oficiales para las grandes fiestas del Caribe</h4>
+                                </div>
+                            </div>
+                            <div class="most-viewed-bottom-card" onclick="switchView('home-view')">
+                                <div class="img-container">
+                                    <img src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=300&q=80" alt="Visto 3" style="width:100%; height:100%; object-fit:cover;">
+                                </div>
+                                <div class="card-body">
+                                    <h4>3. Resumen y goles de la última jornada deportiva</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
                 </main>
 
@@ -2444,9 +2660,9 @@
                     <h4>Secciones</h4>
                     <ul>
                         <li><a onclick="switchView('home-view')">Inicio</a></li>
-                        <li><a onclick="switchView('sports-subpage-view')">Deporte</a></li>
-                        <li><a onclick="switchView('home-view')">Entretenimiento y Música</a></li>
-                        <li><a onclick="switchView('home-view')">Eventos</a></li>
+                        <li><a onclick="openCategoryView('Deporte', 'Deporte')">Deporte</a></li>
+                        <li><a onclick="openCategoryView('Entretenimiento', 'Entretenimiento')">Entretenimiento</a></li>
+                        <li><a onclick="openCategoryView('Eventos', 'Eventos')">Eventos</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -2486,35 +2702,25 @@
             closeSidebar();
         }
 
-        /* FUNCIÓN DE FILTRADO DE NOTICIAS DEPORTIVAS POR CATEGORÍA CON 1 CLIC */
-        function filterSports(category) {
-            const cards = document.querySelectorAll('.sport-vertical-card-item');
-            const chips = document.querySelectorAll('.sports-cat-chip');
-            const titleElement = document.getElementById('sports-section-title');
+        /* ABRIR VISTA DINÁMICA DE CATEGORÍA CON 10 NOTICIAS PARA CUALQUIER SECCIÓN */
+        function openCategoryView(sectionName, categoryName) {
+            const titleEl = document.getElementById('category-page-title');
+            const articlesTitleEl = document.getElementById('category-articles-title');
+            
+            titleEl.textContent = 'Portal de ' + categoryName;
+            articlesTitleEl.textContent = 'Noticias de ' + categoryName + ' (10)';
 
-            // Actualizar chip activo visualmente
-            chips.forEach(chip => {
-                if (chip.textContent.includes(category) || (category === 'Todas' && chip.textContent.includes('Todas'))) {
-                    chip.classList.add('active');
+            switchView('category-subpage-view');
+        }
+
+        /* FILTRAR ARTÍCULOS DENTRO DE LA CATEGORÍA */
+        function filterCategoryArticles(subcat) {
+            const chips = document.querySelectorAll('.cat-chip');
+            chips.forEach(c => {
+                if(c.textContent.includes(subcat) || (subcat === 'General' && c.textContent.includes('Todas'))) {
+                    c.classList.add('active');
                 } else {
-                    chip.classList.remove('active');
-                }
-            });
-
-            // Actualizar título de la sección
-            if (category === 'Todas') {
-                titleElement.textContent = 'Todas las Noticias Deportivas (10)';
-            } else {
-                titleElement.textContent = 'Noticias de ' + category;
-            }
-
-            // Filtrar tarjetas
-            cards.forEach(card => {
-                const cardCat = card.getAttribute('data-category');
-                if (category === 'Todas' || cardCat === category) {
-                    card.style.display = 'grid';
-                } else {
-                    card.style.display = 'none';
+                    c.classList.remove('active');
                 }
             });
         }
